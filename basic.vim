@@ -8,8 +8,17 @@ set history=500
 " 开启显示行号
 set nu
 
+" 开启光标在文件首尾的相对位置
+" set scrolloff=5
+
 " 当外部文件变更时自动加载
 set autoread
+
+
+" 区分插入模式和普通模式的光标
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " 设置快捷键绑定的触发键
 let mapleader = ","
@@ -37,6 +46,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+map tx :r !figlet 
 
 """"""""""""""""""""""""""""""
 " 状态栏
