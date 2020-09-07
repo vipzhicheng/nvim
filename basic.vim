@@ -10,6 +10,7 @@ set hidden
 
 " 开启显示行号，相对行号
 set relativenumber
+set number
 
 " 开启光标在文件首尾的相对位置
 " set scrolloff=5
@@ -55,7 +56,13 @@ set backspace=indent,eol,start
 nmap <leader>w :w!<cr> " 保存当前文件
 nmap <leader>W :W<cr> " sudo 保存当前文件
 
-nmap <leader>rc :e ~/.config/vimrc/index.vim<cr>
+nmap <leader>rc :e ~/.config/vimrc/basic.vim<cr>
+if has ('autocmd') " Remain compatible with earlier versions
+ augroup vimrc     " Source vim configuration upon save
+    autocmd! BufWritePost ~/.config/vimrc/basic.vim source % | echom "Reloaded" | redraw
+    " autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+  augroup END
+endif " has autocmd
 noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 
 " 在窗口中移动
@@ -87,7 +94,6 @@ set statusline=CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 " === coc.nvim
 " ===
 let g:coc_global_extensions = [
-	\ 'coc-actions',
 	\ 'coc-css',
 	\ 'coc-diagnostic',
 	\ 'coc-explorer',
