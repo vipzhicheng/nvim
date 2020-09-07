@@ -27,6 +27,16 @@ git pull -r
 
 可以在 `.vimrc` 文件的下方定制，也可以在 `~/.config/vimrc/local.vim` 中定制。
 
+## 使用 `neovim`
+
+尝试兼容 `neovim`，使用 `brew isntall neovim` 安装，然后编辑 `~/.config/nvim/init.vim`，添加
+
+```
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.config/vimrc/index.vim
+```
+
 ## 项目使用方式
 
 **请不要** 直接使用本项目，推荐你 **Fork** 本项目，然后所有配置统统注释，再逐条打开，验证每一条的作用，以及你是否感兴趣，删掉你不感兴趣的，加上你从别处学来的，最终形成你自己的配置。
