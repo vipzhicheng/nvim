@@ -11,3 +11,11 @@
 ```
 brew install figlet
 ```
+
+## FZF
+
+一个好用的模糊搜索工具
+
+```
+brew install fzf
+```

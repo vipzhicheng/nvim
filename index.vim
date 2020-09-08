@@ -19,18 +19,21 @@
 " 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 " endif
 
+" autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
 " 设置运行时目录
 set runtimepath+=~/.config/vimrc
 
 " 加载运行时目录中的文件
 
-" VIM plug: VIM plugin manager
-" runtime plug.vim
+" Load VIM plugin manager
+runtime autoload/plug.vim
 
 " Configuration
 runtime basic.vim
+runtime plug.vim
 
-" 加载本地个性化配置
+" Try to load local settings
 try
 runtime local.vim
 catch
