@@ -19,3 +19,11 @@ brew install figlet
 ```
 brew install fzf
 ```
+
+## Ranger
+
+虽然 `brew install ranger` 也可以安装，但是为了更好得通过 neovim 的 `:checkhealth`，还是用 pip 的方式来装吧：
+
+```
+pip3.8 install --user --upgrade ranger-fm
+```

@@ -41,6 +41,10 @@ call plug#begin('~/config/vimrc/plugged')
 Plug 'bling/vim-bufferline'
 Plug 'bpietravalle/vim-bolt'
 Plug 'theniceboy/vim-deus'
+Plug 'TaDaa/vimade'
+Plug 'mg979/vim-xtabline'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/goyo.vim'
 
 " Status line
 Plug 'theniceboy/eleline.vim'
@@ -52,13 +56,15 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinhwang91/rnvimr'
 
-
-" Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 
 " Git
 Plug 'airblade/vim-gitgutter'
+
+" Editor
+Plug 'mbbill/undotree'
+Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -198,10 +204,81 @@ let g:rnvimr_action = {
             \ 'gw': 'JumpNvimCwd',
             \ 'yw': 'EmitRangerCwd'
             \ }
+" Customize the initial layout
 let g:rnvimr_layout = { 'relative': 'editor',
-            \ 'width': &columns,
-            \ 'height': &lines,
-            \ 'col': 0,
-            \ 'row': 0,
+            \ 'width': float2nr(round(0.6 * &columns)),
+            \ 'height': float2nr(round(0.6 * &lines)),
+            \ 'col': float2nr(round(0.2 * &columns)),
+            \ 'row': float2nr(round(0.2 * &lines)),
             \ 'style': 'minimal' }
-let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+
+" Customize multiple preset layouts
+" '{}' represents the initial layout
+let g:rnvimr_presets = [
+            \ {},
+            \ {'width': 0.700, 'height': 0.700},
+            \ {'width': 0.800, 'height': 0.800},
+            \ {'width': 0.950, 'height': 0.950},
+            \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0},
+            \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
+            \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0},
+            \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0.5},
+            \ {'width': 0.500, 'height': 1.000, 'col': 0, 'row': 0},
+            \ {'width': 0.500, 'height': 1.000, 'col': 0.5, 'row': 0},
+            \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0},
+            \ {'width': 1.000, 'height': 0.500, 'col': 0, 'row': 0.5}]
+
+" ===
+" === vimade
+" ===
+
+
+
+" ===
+" === xtabline
+" ===
+let g:xtabline_settings = {}
+let g:xtabline_settings.enable_mappings = 0
+let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
+let g:xtabline_settings.enable_persistance = 0
+let g:xtabline_settings.last_open_first = 1
+noremap to :XTabCycleMode<CR>
+noremap \p :echo expand('%:p')<CR>
+
+" ===
+" === auto jump
+" ===
+
+" Disable default any-jump keybindings (default: 0)
+let g:any_jump_disable_default_keybindings = 1
+
+" Normal mode: Jump to definition under cursore
+nnoremap <leader>ae :AnyJump<CR>
+
+" Visual mode: jump to selected text in visual mode
+xnoremap <leader>ae :AnyJumpVisual<CR>
+
+" Normal mode: open last closed search window again
+nnoremap <leader>al :AnyJumpLastResults<CR>
+
+" ===
+" === Undotree
+" ===
+noremap L :UndotreeToggle<CR>
+let g:undotree_DiffAutoOpen = 1
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_WindowLayout = 2
+let g:undotree_DiffpanelHeight = 8
+let g:undotree_SplitWidth = 24
+function g:Undotree_CustomMap()
+	nmap <buffer> u <plug>UndotreeNextState
+	nmap <buffer> e <plug>UndotreePreviousState
+	nmap <buffer> U 5<plug>UndotreeNextState
+	nmap <buffer> E 5<plug>UndotreePreviousState
+endfunc
+
+" ===
+" === goyo
+" ===
+map <LEADER>gy :Goyo<CR>
