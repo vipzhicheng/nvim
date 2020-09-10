@@ -16,7 +16,7 @@ git clone https://github.com/vipzhicheng/vimrc.git ~/.config/vimrc
 source ~/.config/vimrc/index.vim
 ```
 
-## 更新
+## 升级
 
 ```
 cd ~/.config/vimrc
@@ -25,17 +25,7 @@ git pull -r
 
 ## 定制
 
-可以在 `.vimrc` 文件的下方定制，也可以在 `~/.config/vimrc/local.vim` 中定制。
-
-## 使用 `neovim`
-
-尝试兼容 `neovim`，使用 `brew isntall neovim` 安装，然后编辑 `~/.config/nvim/init.vim`，添加
-
-```
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.config/vimrc/index.vim
-```
+在 `~/.config/vimrc/local.vim` 中定制私有配置，不影响升级。
 
 ## 项目使用方式
 
@@ -44,6 +34,12 @@ source ~/.config/vimrc/index.vim
 ## 贡献
 
 本项目是个人项目，原则上不接受 `PR`，但是有一种情况例外，就是你打算教我一些技巧，我不是 `vim` 高手，期待大家的指点，如果有 `PR`，我可能是参考之后只取我认为对我有用的。
+
+## 更多文档参考
+
+* docs/HELP.md 记录一些使用心得，文档里都有，这里是按照我学会的顺序来维护的，不成体系
+* docs/INSTALL.md 安装 neovim 和一些底层依赖（npm/ruby/python）
+* docs/REQUIREMENTS.md 一些第三方依赖的安装方式（figlet/fzf/ranger/...）
 
 ## 许可协议
 

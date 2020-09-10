@@ -10,6 +10,14 @@
 brew install neovim
 ```
 
+然后编辑 `~/.config/nvim/init.vim`，添加
+
+```
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.config/vimrc/index.vim
+```
+
 ### CentOS 7/8
 
 由于部分插件对 `neovim` 的版本有要求，所以不安装包管理工具里的 `neovim` 而是安装最新稳定的二进制
