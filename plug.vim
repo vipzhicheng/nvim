@@ -35,7 +35,7 @@ let g:coc_global_extensions = [
 	\ 'coc-yank']
 
 " 使用 VIM Plug 管理插件
-call plug#begin('~/config/vimrc/plugged')
+call plug#begin('~/.config/vimrc/plugged')
 
 " Pretty Dress
 Plug 'bling/vim-bufferline'
@@ -65,6 +65,7 @@ Plug 'airblade/vim-gitgutter'
 " Editor
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -281,4 +282,15 @@ endfunc
 " ===
 " === goyo
 " ===
-map <LEADER>gy :Goyo<CR>
+map gy :Goyo<CR>
+
+
+" ===
+" === vim-easy-align
+" ===
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

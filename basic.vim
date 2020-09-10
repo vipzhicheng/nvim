@@ -32,9 +32,6 @@ let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
-" 设置快捷键绑定的触发键
-let mapleader = " "
-
 " :W 用 sudo 的方式来保存当前文件，适用于打开文件时没加 sudo 导致没有权限写的问题
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 

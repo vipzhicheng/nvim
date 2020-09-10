@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 快捷键
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" inoremap <esc> <nop>
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
@@ -11,10 +11,10 @@ nnoremap L $
 nnoremap J 5j
 nnoremap K 5k
 
-nmap <leader>w :w!<cr> " 保存当前文件
-nmap <leader>W :W<cr> " sudo 保存当前文件
+nnoremap <leader>w :w!<cr> " 保存当前文件
+nnoremap <leader>W :W<cr> " sudo 保存当前文件
 
-nmap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
+nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
@@ -40,7 +40,7 @@ noremap tu :tabe<CR>
 noremap tp :-tabnext<CR>
 noremap th :-tabnext<CR>
 noremap tn :+tabnext<CR>
-noremap tl:+tabnext<CR>
+noremap tl :+tabnext<CR>
 " Move the tabs with tmn and tmi
 noremap tmn :-tabmove<CR>
 noremap tmi :+tabmove<CR>
