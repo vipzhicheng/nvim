@@ -22,7 +22,7 @@ if has ('autocmd') " Remain compatible with earlier versions
     " autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
   augroup END
 endif " has autocmd
-noremap <c-g> :tabe<CR>:-tabmove<CR>:term lazygit<CR>
+noremap <c-g> :tabe<cr>:-tabmove<cr>:term lazygit<cr>
 
 " 在窗口中移动
 map <C-j> <C-w>j
@@ -35,26 +35,28 @@ map <C-l> <C-w>l
 " === Tab management
 " ===
 " Create a new tab with tu
-noremap tn :tabe<CR>
+noremap tn :tabe<cr>
 
 " Move around tabs with tn and ti
-noremap th :-tabnext<CR>
-noremap tl :+tabnext<CR>
+noremap th :-tabnext<cr>
+noremap tl :+tabnext<cr>
+noremap tx :tabclose<cr>
 " Move the tabs with tmn and tmi
-noremap tmh :-tabmove<CR>
-noremap tml :+tabmove<CR>
+noremap tmh :-tabmove<cr>
+noremap tml :+tabmove<cr>
 
 noremap xf :r !figlet 
-nnoremap rr :CocCommand explorer<CR>
+nnoremap rr :CocCommand explorer<cr>
 
 
 " Disable the default s key
 noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
-noremap sj :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
-noremap sk :set splitbelow<CR>:split<CR>
-noremap sh :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
-noremap sl :set splitright<CR>:vsplit<CR>
+noremap sj :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>
+noremap sk :set splitbelow<cr>:split<cr>
+noremap sh :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
+noremap sl :set splitright<cr>:vsplit<cr>
+nnoremap sx :q!<cr>
 
 

@@ -83,25 +83,28 @@ let g:gitgutter_sign_removed = '▏'
 let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▒'
 " autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<CR>
-nnoremap <LEADER>H :GitGutterPreviewHunk<CR>
-nnoremap <LEADER>g- :GitGutterPrevHunk<CR>
-nnoremap <LEADER>g= :GitGutterNextHunk<CR>
+nnoremap <LEADER>gf :GitGutterFold<cr>
+nnoremap <LEADER>H :GitGutterPreviewHunk<cr>
+nnoremap <LEADER>g- :GitGutterPrevHunk<cr>
+nnoremap <LEADER>g= :GitGutterNextHunk<cr>
 
 " ===
-" === FZF
+" === LeaderF FZF
 " ===
 set rtp+=/usr/local/opt/fzf
 set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 set rtp+=/home/david/.linuxbrew/opt/fzf
-" noremap <silent> <C-p> :Files<CR>
-noremap <silent> <C-p> :Leaderf file<CR>
-"noremap <silent> <C-f> :Rg<CR>
-"noremap <silent> <C-h> :History<CR>
-"noremap <C-t> :BTags<CR>
-"noremap <silent> <C-l> :Lines<CR>
-"noremap <silent> <C-w> :Buffers<CR>
-"noremap <leader>; :History:<CR>
+" noremap <silent> <C-p> :Files<cr>
+noremap <silent> <C-p> :Leaderf file<cr>
+noremap <silent> <A-e> :LeaderfMru<cr>
+noremap <silent> <A-b> :LeaderfBuffer<cr>
+noremap <silent> <A-f> :LeaderfFunction<cr>
+"noremap <silent> <C-f> :Rg<cr>
+"noremap <silent> <C-h> :History<cr>
+"noremap <C-t> :BTags<cr>
+"noremap <silent> <C-l> :Lines<cr>
+"noremap <silent> <C-w> :Buffers<cr>
+"noremap <leader>; :History:<cr>
 
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
@@ -183,11 +186,11 @@ let g:coc_explorer_global_presets = {
 \ }
 
 " Use preset argument to open it
-nmap <space>ed :CocCommand explorer --preset .vim<CR>
-nmap <space>ef :CocCommand explorer --preset floating<CR>
+nnoremap <space>ed :CocCommand explorer --preset .vim<cr>
+nnoremap <space>ef :CocCommand explorer --preset floating<cr>
 
 " List all presets
-nmap <space>el :CocList explPresets
+nnoremap <space>el :CocList explPresets
 
 " ===
 " === rnvimr
@@ -197,7 +200,7 @@ let g:rnvimr_pick_enable = 1
 let g:rnvimr_draw_border = 0
 " let g:rnvimr_bw_enable = 1
 highlight link RnvimrNormal CursorLine
-nnoremap <silent> R :RnvimrToggle<CR><C-\><C-n>:RnvimrResize 0<CR>
+nnoremap <silent> R :RnvimrToggle<cr><C-\><C-n>:RnvimrResize 0<cr>
 let g:rnvimr_action = {
             \ '<C-t>': 'NvimEdit tabedit',
             \ '<C-x>': 'NvimEdit split',
@@ -243,8 +246,8 @@ let g:xtabline_settings.enable_mappings = 0
 let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
 let g:xtabline_settings.enable_persistance = 0
 let g:xtabline_settings.last_open_first = 1
-noremap to :XTabCycleMode<CR>
-noremap \p :echo expand('%:p')<CR>
+noremap to :XTabCycleMode<cr>
+noremap \p :echo expand('%:p')<cr>
 
 " ===
 " === auto jump
@@ -254,18 +257,18 @@ noremap \p :echo expand('%:p')<CR>
 let g:any_jump_disable_default_keybindings = 1
 
 " Normal mode: Jump to definition under cursore
-nnoremap <leader>ae :AnyJump<CR>
+nnoremap <leader>ae :AnyJump<cr>
 
 " Visual mode: jump to selected text in visual mode
-xnoremap <leader>ae :AnyJumpVisual<CR>
+xnoremap <leader>ae :AnyJumpVisual<cr>
 
 " Normal mode: open last closed search window again
-nnoremap <leader>al :AnyJumpLastResults<CR>
+nnoremap <leader>al :AnyJumpLastResults<cr>
 
 " ===
 " === Undotree
 " ===
-noremap <LEADER>L :UndotreeToggle<CR>
+noremap <LEADER>L :UndotreeToggle<cr>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -273,16 +276,16 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nmap <buffer> u <plug>UndotreeNextState
-	nmap <buffer> e <plug>UndotreePreviousState
-	nmap <buffer> U 5<plug>UndotreeNextState
-	nmap <buffer> E 5<plug>UndotreePreviousState
+	nnoremap <buffer> u <plug>UndotreeNextState
+	nnoremap <buffer> e <plug>UndotreePreviousState
+	nnoremap <buffer> U 5<plug>UndotreeNextState
+	nnoremap <buffer> E 5<plug>UndotreePreviousState
 endfunc
 
 " ===
 " === goyo
 " ===
-map gy :Goyo<CR>
+map gy :Goyo<cr>
 
 
 " ===
@@ -293,7 +296,7 @@ map gy :Goyo<CR>
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nnoremap ga <Plug>(EasyAlign)
 
 " ===
 " === coc-translator

@@ -24,6 +24,11 @@ set runtimepath+=~/.config/vimrc
 " 加载插件管理器
 runtime autoload/plug.vim
 
+" augroup
+augroup cmd_once
+  autocmd!
+augroup END
+
 " 设置快捷键绑定的触发键
 let mapleader = " "
 
