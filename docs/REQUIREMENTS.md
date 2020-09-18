@@ -54,3 +54,31 @@ git clone https://github.com/ranger/ranger.git --depth=1
 cd ranger
 sudo make install
 ```
+
+## ripgrep
+
+### Mac
+
+```
+brew install ripgrep
+```
+
+### Centos 7/8
+
+```
+dnf install ripgrep
+```
+
+## the_silver_searcher
+
+### Mac
+
+```
+brew install the_silver_searcher
+```
+
+### Centos 7/8
+
+```
+dnf install the_silver_searcher
+```

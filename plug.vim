@@ -1,13 +1,11 @@
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost ~/.config/vimrc/plug.vim source % | echom "Reloaded" | redraw
+    autocmd! BufWritePost ~/.config/vimrc/plug.vim source ~/.config/vimrc/index.vim | echom "Reloaded" | redraw
   augroup END
 endif " has autocmd
 
 
-" ===
-" === coc.nvim
-" ===
+" 声明 coc 扩展 {{{
 let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-diagnostic',
@@ -33,8 +31,9 @@ let g:coc_global_extensions = [
 	\ 'coc-vetur',
 	\ 'coc-yaml',
 	\ 'coc-yank']
+" }}}
 
-" 使用 VIM Plug 管理插件
+" 声明 VIM Plug 启用插件 {{{
 call plug#begin('~/.config/vimrc/plugged')
 
 " Pretty Dress
@@ -68,10 +67,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
 
 call plug#end()
+" }}}
 
-" ==
-" == GitGutter
-" ==
+" 配置插件：GitGutter {{{
 " let g:gitgutter_signs = 0
 let g:gitgutter_sign_allow_clobber = 0
 let g:gitgutter_map_keys = 0
@@ -87,25 +85,24 @@ nnoremap <LEADER>gf :GitGutterFold<cr>
 nnoremap <LEADER>H :GitGutterPreviewHunk<cr>
 nnoremap <LEADER>g- :GitGutterPrevHunk<cr>
 nnoremap <LEADER>g= :GitGutterNextHunk<cr>
+" }}}
 
 " ===
 " === LeaderF FZF
 " ===
-set rtp+=/usr/local/opt/fzf
-set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
-set rtp+=/home/david/.linuxbrew/opt/fzf
+set rtp+=~/.fzf
 " noremap <silent> <C-p> :Files<cr>
 noremap <silent> <C-p> :Leaderf file<cr>
 noremap <silent> <A-e> :LeaderfMru<cr>
 noremap <silent> <A-b> :LeaderfBuffer<cr>
 noremap <silent> <A-f> :LeaderfFunction<cr>
-"noremap <silent> <C-f> :Rg<cr>
+noremap <silent> <C-m> :RG<cr>
 "noremap <silent> <C-h> :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
 "noremap <silent> <C-w> :Buffers<cr>
 "noremap <leader>; :History:<cr>
-
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
