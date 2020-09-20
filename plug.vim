@@ -37,6 +37,7 @@ let g:coc_global_extensions = [
 call plug#begin('~/.config/vimrc/plugged')
 
 " Pretty Dress
+Plug 'morhetz/gruvbox'
 Plug 'bling/vim-bufferline'
 Plug 'bpietravalle/vim-bolt'
 Plug 'theniceboy/vim-deus'
@@ -44,6 +45,7 @@ Plug 'TaDaa/vimade'
 Plug 'mg979/vim-xtabline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
+
 
 " Status line
 Plug 'theniceboy/eleline.vim'
@@ -58,9 +60,6 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 
-" Git
-Plug 'airblade/vim-gitgutter'
-
 " Editor
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-multiple-cursors'
@@ -69,57 +68,38 @@ Plug 'junegunn/vim-easy-align'
 call plug#end()
 " }}}
 
-" 配置插件：GitGutter {{{
-" let g:gitgutter_signs = 0
-let g:gitgutter_sign_allow_clobber = 0
-let g:gitgutter_map_keys = 0
-let g:gitgutter_override_sign_column_highlight = 0
-let g:gitgutter_preview_win_floating = 1
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '░'
-let g:gitgutter_sign_removed = '▏'
-let g:gitgutter_sign_removed_first_line = '▔'
-let g:gitgutter_sign_modified_removed = '▒'
-" autocmd BufWritePost * GitGutter
-nnoremap <LEADER>gf :GitGutterFold<cr>
-nnoremap <LEADER>H :GitGutterPreviewHunk<cr>
-nnoremap <LEADER>g- :GitGutterPrevHunk<cr>
-nnoremap <LEADER>g= :GitGutterNextHunk<cr>
+
+" 配置主题 {{{
+colorscheme gruvbox
+" }}}
+
+" fzf {{{
+set rtp+=~/.fzf
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+let g:fzf_preview_window = 'right:60%'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 " }}}
 
 " ===
-" === LeaderF FZF
+" === LeaderF
 " ===
-set rtp+=~/.fzf
 " noremap <silent> <C-p> :Files<cr>
 noremap <silent> <C-p> :Leaderf file<cr>
-noremap <silent> <A-e> :LeaderfMru<cr>
-noremap <silent> <A-b> :LeaderfBuffer<cr>
-noremap <silent> <A-f> :LeaderfFunction<cr>
+noremap <silent> <C-e> :LeaderfMru<cr>
+noremap <silent> <C-b> :LeaderfBuffer<cr>
+noremap <silent> <C-f> :LeaderfFunction<cr>
 noremap <silent> <C-m> :RG<cr>
 "noremap <silent> <C-h> :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
 "noremap <silent> <C-w> :Buffers<cr>
 "noremap <leader>; :History:<cr>
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-let g:fzf_preview_window = 'right:60%'
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-" ===
-" === Leaderf
-" ===
 " let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
 let g:Lf_ShowDevIcons = 1
-let g:Lf_CommandMap = {
-\   '<C-k>': ['<C-u>'],
-\   '<C-j>': ['<C-e>'],
-\   '<C-]>': ['<C-v>'],
-\   '<C-p>': ['<C-n>'],
-\}
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
 let g:Lf_WildIgnore = {
@@ -265,7 +245,7 @@ nnoremap <leader>al :AnyJumpLastResults<cr>
 " ===
 " === Undotree
 " ===
-noremap <LEADER>L :UndotreeToggle<cr>
+noremap <LEADER>t :UndotreeToggle<cr>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
