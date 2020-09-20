@@ -227,20 +227,8 @@ noremap to :XTabCycleMode<cr>
 noremap \p :echo expand('%:p')<cr>
 
 " ===
-" === auto jump
+" === auto jump, use default
 " ===
-
-" Disable default any-jump keybindings (default: 0)
-let g:any_jump_disable_default_keybindings = 1
-
-" Normal mode: Jump to definition under cursore
-nnoremap <leader>ae :AnyJump<cr>
-
-" Visual mode: jump to selected text in visual mode
-xnoremap <leader>ae :AnyJumpVisual<cr>
-
-" Normal mode: open last closed search window again
-nnoremap <leader>al :AnyJumpLastResults<cr>
 
 " ===
 " === Undotree
