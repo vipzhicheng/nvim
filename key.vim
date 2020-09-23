@@ -6,12 +6,12 @@ inoremap jk <esc>
 
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-nnoremap H 0
-nnoremap L $
-nnoremap J 5j
-nnoremap K 5k
 
-nnoremap <leader>w :w!<cr> " 保存当前文件
+
+" Save & quit
+noremap Q :q<CR>
+noremap <C-q> :qa<CR>
+nnoremap <leader>w :w<cr> " 保存当前文件
 nnoremap <leader>W :W<cr> " sudo 保存当前文件
 
 nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
@@ -22,6 +22,7 @@ if has ('autocmd') " Remain compatible with earlier versions
     " autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
   augroup END
 endif " has autocmd
+
 noremap <c-g> :tabe<cr>:-tabmove<cr>:term lazygit<cr>
 
 " 在窗口中移动
@@ -30,6 +31,11 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
+" Resize splits with arrow keys
+noremap <up> :res -5<CR>
+noremap <down> :res +5<CR>
+noremap <left> :vertical resize+5<CR>
+noremap <right> :vertical resize-5<CR>
 
 " ===
 " === Tab management
@@ -59,4 +65,10 @@ noremap sh :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
 noremap sl :set splitright<cr>:vsplit<cr>
 nnoremap sx :q!<cr>
 
+" Place the two screens up and down
+noremap sn <C-w>t<C-w>K
+" Place the two screens side by side
+noremap sv <C-w>t<C-w>H
 
+" Opening a terminal window
+noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>

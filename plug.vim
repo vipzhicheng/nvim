@@ -64,6 +64,8 @@ Plug 'pechorin/any-jump.vim'
 Plug 'mbbill/undotree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/vim-easy-align'
+Plug 'easymotion/vim-easymotion'
+Plug 'liuchengxu/vista.vim'
 
 call plug#end()
 " }}}
@@ -268,3 +270,10 @@ nnoremap ga <Plug>(EasyAlign)
 " ===
  
 nnoremap ts <Plug>(coc-translator-p)
+
+" ===
+" === EasyMotion
+" ===
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_shade = 0
+let g:EasyMotion_smartcase = 1
