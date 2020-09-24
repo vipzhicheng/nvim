@@ -43,7 +43,7 @@ set expandtab                                              " 用空格代替 tab
 set tabstop=2 softtabstop=2
 
 set incsearch                                              " 增量查找
-
+set hlsearch                                               " 高亮搜索
 
 set backspace=indent,eol,start                             " 如果不加这个，退格键的作用会和预期不同，已经输入的内容在再次进入插入模式的时候会删不掉
 " }}}

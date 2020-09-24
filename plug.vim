@@ -57,6 +57,8 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinhwang91/rnvimr'
 
+Plug 'preservim/nerdtree'
+
 Plug 'airblade/vim-rooter'
 Plug 'pechorin/any-jump.vim'
 
@@ -277,3 +279,12 @@ nnoremap ts <Plug>(coc-translator-p)
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_do_shade = 0
 let g:EasyMotion_smartcase = 1
+
+" ===
+" === NERDTree
+" ===
+
+" 打开 NERDTree的快捷键
+noremap tt :NERDTreeToggle<CR>
+" 如果当前窗口只剩下 NERDTree 了，就把NERDTree 也关掉
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
