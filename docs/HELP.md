@@ -4,6 +4,7 @@
 
 ### Normal Mode
 
+* `<C-^>`: 可以在最近编辑的 Buffer 文件进行切换
 * `<C-o>`: 可以去前一个 jump 位置
 * `<C-i>`: 可以去后一个 jump 位置
 * `gf`: Go to file，跳转到另一个文件
