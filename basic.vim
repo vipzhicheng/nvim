@@ -13,7 +13,8 @@ set nowrap           " 不主动换行
 set cursorline       " 当前行高亮
 set confirm          " 退出vim确认
 
-set scrolloff=5     " 开启光标在文件首尾的相对位置
+set scrolloff=7     " 开启光标在文件首尾的相对位置
+set cmdheight=2
 
 set autoread         " 当外部文件变更时自动加载
 set updatetime=300   " 这个值大致的意思是输入完成和触发插件的时间间隔
@@ -28,9 +29,13 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 
-
+set ignorecase
+set smartcase
 
 syntax on                                                  " 开启语法高亮
+
+" 兼容 tmux (若不设置此项，tmux 仅仅会在内容区设置背景)
+set term=screen-256color
 
 set nobackup                                               " 不生成备份文件，以 ~ 结尾
 set nowritebackup                                          " 不在编辑时生成一份备份文件
@@ -40,6 +45,7 @@ set noswapfile                                             " 不写临时文件�
 set shiftwidth=2                                           " 设置缩进大小， >> << 时生效
 set smartindent
 set expandtab                                              " 用空格代替 tab
+set smarttab
 set tabstop=2 softtabstop=2
 
 set incsearch                                              " 增量查找
