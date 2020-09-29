@@ -9,7 +9,6 @@ endif " has autocmd
 let g:coc_global_extensions = [
 	\ 'coc-css',
 	\ 'coc-diagnostic',
-	\ 'coc-explorer',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
 	\ 'coc-html',
@@ -24,7 +23,6 @@ let g:coc_global_extensions = [
 	\ 'coc-syntax',
 	\ 'coc-tasks',
 	\ 'coc-todolist',
-	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
@@ -37,45 +35,36 @@ let g:coc_global_extensions = [
 call plug#begin('~/.config/vimrc/plugged')
 
 " Pretty Dress
-Plug 'morhetz/gruvbox'
-Plug 'bling/vim-bufferline'
-Plug 'bpietravalle/vim-bolt'
-Plug 'theniceboy/vim-deus'
-Plug 'TaDaa/vimade'
-Plug 'mg979/vim-xtabline'
-Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/goyo.vim'
+" Plug 'morhetz/gruvbox'   " 另一个主题
+Plug 'theniceboy/vim-deus'   " 一个主题
+Plug 'TaDaa/vimade'  " 光标所在区域高亮
+Plug 'ryanoasis/vim-devicons'    " 资源管理器文件图标
+Plug 'junegunn/goyo.vim'      " 专注模式
+Plug 'vim-airline/vim-airline'   " 状态栏
+Plug 'vim-airline/vim-airline-themes'    " 状态栏
 
-
-" Status line
-Plug 'theniceboy/eleline.vim'
-Plug 'ojroques/vim-scrollstatus'
 
 " File navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " 文件模糊查找
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }  " 各种文件切换方式
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'kevinhwang91/rnvimr'
-
-Plug 'preservim/nerdtree'
-
-Plug 'airblade/vim-rooter'
-Plug 'pechorin/any-jump.vim'
+Plug 'kevinhwang91/rnvimr'    " 整合 ranger
+Plug 'preservim/nerdtree'    " 资源管理器
+Plug 'airblade/vim-rooter'   " 自动切换目录
+Plug 'pechorin/any-jump.vim'  " 跳转文件
 
 " Editor
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree'      " 本地修改历史，撤销/重做
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align'  " 对齐等号
 Plug 'easymotion/vim-easymotion'
-Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'    " 程序大纲 依赖于ctags，还没配好
+Plug 'jiangmiao/auto-pairs' " 括号自动匹配
+Plug 'preservim/nerdcommenter' " 注释
 
 call plug#end()
 " }}}
 
-
-" 配置主题 {{{
-colorscheme gruvbox
-" }}}
 
 " fzf {{{
 set rtp+=~/.fzf
@@ -129,49 +118,6 @@ let g:deus_termcolors=256
 let g:scrollstatus_size = 12
 
 
-" ===
-" === coc expolorer
-" ===
-let g:coc_explorer_global_presets = {
-\   '.vim': {
-\     'root-uri': '~/.vim',
-\   },
-\   'tab': {
-\     'position': 'tab',
-\     'quit-on-open': v:true,
-\   },
-\   'floating': {
-\     'position': 'floating',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingTop': {
-\     'position': 'floating',
-\     'floating-position': 'center-top',
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingLeftside': {
-\     'position': 'floating',
-\     'floating-position': 'left-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'floatingRightside': {
-\     'position': 'floating',
-\     'floating-position': 'right-center',
-\     'floating-width': 50,
-\     'open-action-strategy': 'sourceWindow',
-\   },
-\   'simplify': {
-\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
-\ }
-
-" Use preset argument to open it
-nnoremap <space>ed :CocCommand explorer --preset .vim<cr>
-nnoremap <space>ef :CocCommand explorer --preset floating<cr>
-
-" List all presets
-nnoremap <space>el :CocList explPresets
 
 " ===
 " === rnvimr
@@ -218,17 +164,24 @@ let g:rnvimr_presets = [
 " ===
 
 
+" ===
+" === airline
+" ===
+set laststatus=2  "永远显示状态栏
+let g:airline_powerline_fonts = 1  " 支持 powerline 字体
+let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
+let g:airline_theme='moloai'  " murmur配色不错
 
-" ===
-" === xtabline
-" ===
-let g:xtabline_settings = {}
-let g:xtabline_settings.enable_mappings = 0
-let g:xtabline_settings.tabline_modes = ['tabs', 'buffers']
-let g:xtabline_settings.enable_persistance = 0
-let g:xtabline_settings.last_open_first = 1
-noremap to :XTabCycleMode<cr>
-noremap \p :echo expand('%:p')<cr>
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+
 
 " ===
 " === auto jump, use default
@@ -237,7 +190,7 @@ noremap \p :echo expand('%:p')<cr>
 " ===
 " === Undotree
 " ===
-noremap <LEADER>t :UndotreeToggle<cr>
+noremap <LEADER>do :UndotreeToggle<cr>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -245,10 +198,8 @@ let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
 function g:Undotree_CustomMap()
-	nnoremap <buffer> u <plug>UndotreeNextState
-	nnoremap <buffer> e <plug>UndotreePreviousState
-	nnoremap <buffer> U 5<plug>UndotreeNextState
-	nnoremap <buffer> E 5<plug>UndotreePreviousState
+	nnoremap <buffer> j <plug>UndotreeNextState
+	nnoremap <buffer> k <plug>UndotreePreviousState
 endfunc
 
 " ===
@@ -267,11 +218,6 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nnoremap ga <Plug>(EasyAlign)
 
-" ===
-" === coc-translator
-" ===
- 
-nnoremap ts <Plug>(coc-translator-p)
 
 " ===
 " === coc
@@ -324,8 +270,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>ff  <Plug>(coc-format-selected)
+nmap <leader>ff  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -396,9 +342,19 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " ===
 " === EasyMotion
 " ===
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_do_shade = 0
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap g <Plug>(easymotion-overwin-f)
+
+" Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+noremap <Leader>j <Plug>(easymotion-j)
+noremap <Leader>k <Plug>(easymotion-k)
+noremap  <leader>/ <Plug>(easymotion-sn)
 
 " ===
 " === NERDTree
@@ -408,3 +364,31 @@ let g:EasyMotion_smartcase = 1
 noremap tt :NERDTreeToggle<CR>
 " 如果当前窗口只剩下 NERDTree 了，就把NERDTree 也关掉
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" ===
+" === NERD commenter
+" ===
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' }  }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+

@@ -52,7 +52,6 @@ noremap tmh :-tabmove<cr>
 noremap tml :+tabmove<cr>
 
 noremap xf :r !figlet 
-nnoremap rr :CocCommand explorer<cr>
 
 
 " Disable the default s key

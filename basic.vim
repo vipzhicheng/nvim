@@ -2,7 +2,7 @@
 
 set mouse=a
 
-
+set showmatch        " 显示匹配的括号
 set path+=**         " 支持简单的模糊搜索
 set wildmenu         " 文件名自动补全时显示所有匹配的文件
 set history=500      " 保留多少操作历史
@@ -55,15 +55,6 @@ set backspace=indent,eol,start                             " 如果不加这个�
 iabbrev waht what
 iabbrev tehn then
 
-" }}}
-
-" 状态栏 {{{
-" 开启状态栏
-set laststatus=2
-
-" 状态栏格式化
-" TODO: 学习这里的语法
-" set statusline=CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ Column:\ %c
 " }}}
 
 " 自定义命令 {{{
