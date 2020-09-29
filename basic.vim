@@ -11,6 +11,7 @@ set relativenumber   " 开启相对行号
 set number           " 显示行号
 set nowrap           " 不主动换行
 set cursorline       " 当前行高亮
+set cursorcolumn     " 当前列高亮
 set confirm          " 退出vim确认
 
 set scrolloff=7     " 开启光标在文件首尾的相对位置

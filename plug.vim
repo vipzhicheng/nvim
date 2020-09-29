@@ -41,30 +41,32 @@ Plug 'TaDaa/vimade'                   " 光标所在区域高亮
 Plug 'ryanoasis/vim-devicons'         " 资源管理器文件图标
 Plug 'junegunn/goyo.vim'              " 专注模式
 Plug 'vim-airline/vim-airline'        " 状态栏
-Plug 'vim-airline/vim-airline-themes' " 状态栏
+Plug 'vim-airline/vim-airline-themes' " 状态栏主题
 Plug 'liuchengxu/vim-which-key'       " 提示 <leader> 之后都有什么键绑定
 Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
+Plug 'mhinz/vim-startify'             " 启动页
 
 
 " File navigation
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
 Plug 'preservim/nerdtree'                                         " 资源管理器
 Plug 'airblade/vim-rooter'                                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                                      " 跳转文件
 
 " Editor
-Plug 'honza/vim-snippets'      " 社区代码片段
-Plug 'tpope/vim-repeat'        " 修正 . 的作用
-Plug 'mbbill/undotree'         " 本地修改历史，撤销/重做
-Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/vim-easy-align' " 对齐等号
-Plug 'easymotion/vim-easymotion'
-Plug 'liuchengxu/vista.vim'    " 程序大纲 依赖于ctags，还没配好
-Plug 'jiangmiao/auto-pairs'    " 括号自动匹配
-Plug 'preservim/nerdcommenter' " 注释
-Plug 'tpope/vim-surround'      " 用符号包围字符串
+Plug 'honza/vim-snippets'           " 社区代码片段
+Plug 'tpope/vim-repeat'             " 修正 . 的作用
+Plug 'mbbill/undotree'              " 本地修改历史，撤销/重做
+Plug 'terryma/vim-multiple-cursors' " 多光标查找和修改
+Plug 'junegunn/vim-easy-align'      " 对齐等号
+Plug 'easymotion/vim-easymotion'    " 快速移动光标
+Plug 'liuchengxu/vista.vim'         " 程序大纲 依赖于ctags，还没配好
+Plug 'jiangmiao/auto-pairs'         " 括号自动匹配
+Plug 'preservim/nerdcommenter'      " 注释
+Plug 'tpope/vim-surround'           " 用符号包围字符串
+Plug 'mattn/emmet-vim'              " HTML 智能补全
 
 call plug#end()
 " }}}
