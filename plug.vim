@@ -36,42 +36,37 @@ call plug#begin('~/.config/vimrc/plugged')
 
 " Pretty Dress
 " Plug 'morhetz/gruvbox'   " 另一个主题
-Plug 'theniceboy/vim-deus'   " 一个主题
-Plug 'TaDaa/vimade'  " 光标所在区域高亮
-Plug 'ryanoasis/vim-devicons'    " 资源管理器文件图标
-Plug 'junegunn/goyo.vim'      " 专注模式
-Plug 'vim-airline/vim-airline'   " 状态栏
-Plug 'vim-airline/vim-airline-themes'    " 状态栏
+Plug 'theniceboy/vim-deus'            " 一个主题
+Plug 'TaDaa/vimade'                   " 光标所在区域高亮
+Plug 'ryanoasis/vim-devicons'         " 资源管理器文件图标
+Plug 'junegunn/goyo.vim'              " 专注模式
+Plug 'vim-airline/vim-airline'        " 状态栏
+Plug 'vim-airline/vim-airline-themes' " 状态栏
 
 
 " File navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }   " 文件模糊查找
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }  " 各种文件切换方式
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'kevinhwang91/rnvimr'    " 整合 ranger
-Plug 'preservim/nerdtree'    " 资源管理器
-Plug 'airblade/vim-rooter'   " 自动切换目录
-Plug 'pechorin/any-jump.vim'  " 跳转文件
+Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
+Plug 'preservim/nerdtree'                                         " 资源管理器
+Plug 'airblade/vim-rooter'                                        " 自动切换目录
+Plug 'pechorin/any-jump.vim'                                      " 跳转文件
 
 " Editor
-Plug 'mbbill/undotree'      " 本地修改历史，撤销/重做
+Plug 'honza/vim-snippets'      " 社区代码片段
+Plug 'tpope/vim-repeat'        " 修正 . 的作用
+Plug 'mbbill/undotree'         " 本地修改历史，撤销/重做
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/vim-easy-align'  " 对齐等号
+Plug 'junegunn/vim-easy-align' " 对齐等号
 Plug 'easymotion/vim-easymotion'
 Plug 'liuchengxu/vista.vim'    " 程序大纲 依赖于ctags，还没配好
-Plug 'jiangmiao/auto-pairs' " 括号自动匹配
+Plug 'jiangmiao/auto-pairs'    " 括号自动匹配
 Plug 'preservim/nerdcommenter' " 注释
+Plug 'tpope/vim-surround'      " 用符号包围字符串
 
 call plug#end()
 " }}}
 
-
-" fzf {{{
-set rtp+=~/.fzf
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
-let g:fzf_preview_window = 'right:60%'
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
-" }}}
 
 " ===
 " === LeaderF
@@ -170,7 +165,7 @@ let g:rnvimr_presets = [
 set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
-let g:airline_theme='moloai'  " murmur配色不错
+let g:airline_theme='molokai'  " murmur配色不错
 
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
@@ -181,6 +176,8 @@ let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+
+noremap rr :AirlineTheme random<cr>
 
 
 " ===
@@ -248,7 +245,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
@@ -339,6 +336,12 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+
+" coc-snippets
+imap <C-l> <Plug>(coc-snippets-expand)
+vmap <C-e> <Plug>(coc-snippets-select)
+imap <C-e> <Plug>(coc-snippets-expand-jump)
+
 " ===
 " === EasyMotion
 " ===
@@ -346,7 +349,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap g <Plug>(easymotion-overwin-f)
+nmap <leader>g <Plug>(easymotion-overwin-f)
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -391,4 +394,5 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
 

@@ -68,6 +68,3 @@ nnoremap sx :q!<cr>
 noremap sn <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
-
-" Opening a terminal window
-noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
