@@ -34,9 +34,6 @@ set smartcase
 
 syntax on                                                  " 开启语法高亮
 
-" 兼容 tmux (若不设置此项，tmux 仅仅会在内容区设置背景)
-set term=screen-256color
-
 set nobackup                                               " 不生成备份文件，以 ~ 结尾
 set nowritebackup                                          " 不在编辑时生成一份备份文件
 set noswapfile                                             " 不写临时文件，临时文件里还会包括操作历史
