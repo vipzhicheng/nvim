@@ -105,6 +105,12 @@ python3 -m pip install --user --upgrade pynvim
 pip3.8 install --user --upgrade pynvim # 或，由于Mac本地安装安装了xcode, pip3 不是这里需要得
 ```
 
+有些插件依赖 `neovim-remote`，这里是 `Floaterm` 依赖
+
+```
+pip3.8 install neovim-remote
+```
+
 ### CentOS
 
 最后进 `nvim` 执行 `:checkhealth` 看看

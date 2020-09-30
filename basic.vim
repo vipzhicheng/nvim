@@ -1,7 +1,10 @@
 " 常规配置 {{{
 
+set nocompatible     " 禁用 vi 兼容模式
+
 set mouse=a
 
+set autoindent       " 自动缩进
 set showmatch        " 显示匹配的括号
 set path+=**         " 支持简单的模糊搜索
 set wildmenu         " 文件名自动补全时显示所有匹配的文件
@@ -19,6 +22,7 @@ set cmdheight=2
 
 set autoread         " 当外部文件变更时自动加载
 set updatetime=300   " 这个值大致的意思是输入完成和触发插件的时间间隔
+set lazyredraw       " 延迟绘制
 
 
 " set spell   " 拼写检查
@@ -30,10 +34,16 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 
-set ignorecase
-set smartcase
+set ignorecase                                             " 忽略大小写
+set smartcase                                              " 智能大小写判断，平时忽略，除非你在搜大写字母
+set incsearch                                              " 增量查找
+set hlsearch                                               " 高亮搜索
 
-syntax on                                                  " 开启语法高亮
+" 语法高亮设置
+if has('syntax')  
+	syntax enable 
+	syntax on 
+endif
 
 set nobackup                                               " 不生成备份文件，以 ~ 结尾
 set nowritebackup                                          " 不在编辑时生成一份备份文件
@@ -46,10 +56,27 @@ set expandtab                                              " 用空格代替 tab
 set smarttab
 set tabstop=2 softtabstop=2
 
-set incsearch                                              " 增量查找
-set hlsearch                                               " 高亮搜索
 
 set backspace=indent,eol,start                             " 如果不加这个，退格键的作用会和预期不同，已经输入的内容在再次进入插入模式的时候会删不掉
+
+" 编码设置
+if has('multi_byte')
+	" 内部工作编码
+	set encoding=utf-8
+
+	" 文件默认编码
+	set fileencoding=utf-8
+
+	" 打开文件时自动尝试下面顺序的编码
+	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+endif
+
+" 允许 Vim 自带脚本根据文件类型自动设置缩进等
+if has('autocmd')
+	filetype plugin indent on
+endif
+
+
 " }}}
 
 " 简写和纠错 {{{
@@ -66,3 +93,12 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " :W 用 sudo 的方�
 
 
 " }}}
+
+
+
+
+" 打开文件时恢复上一次光标所在位置
+autocmd BufReadPost *
+	\ if line("'\"") > 1 && line("'\"") <= line("$") |
+	\	 exe "normal! g`\"" |
+	\ endif
