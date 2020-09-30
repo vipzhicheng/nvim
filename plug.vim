@@ -414,8 +414,8 @@ call quickui#menu#install("&File", [
 			\ ])
 
 call quickui#menu#install("&Edit", [
-			\ [ "&Yank", 'yy'],
 			\ [ "&Yank History", 'CocList -A --normal yank'],
+			\ [ "&Yank Clean", 'CocCommand yank.clean'],
 			\ [ "--", ],
 			\ [ "E&xit", 'qa' ],
 			\ ])
