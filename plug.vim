@@ -1,10 +1,3 @@
-if has ('autocmd') " Remain compatible with earlier versions
- augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost ~/.config/vimrc/plug.vim source ~/.config/vimrc/index.vim | echom "Reloaded" | redraw
-  augroup END
-endif " has autocmd
-
-
 " 声明 coc 扩展 {{{
 let g:coc_global_extensions = [
 	\ 'coc-css',
@@ -416,6 +409,13 @@ if has('win32') || has('win64') || has('win16')
 endif
 
 call quickui#menu#install("&File", [
+			\ [ "--", ],
+			\ [ "E&xit", 'qa' ],
+			\ ])
+
+call quickui#menu#install("&Edit", [
+			\ [ "&Yank", 'yy'],
+			\ [ "&Yank History", 'CocList -A --normal yank'],
 			\ [ "--", ],
 			\ [ "E&xit", 'qa' ],
 			\ ])

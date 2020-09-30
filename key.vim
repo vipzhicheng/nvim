@@ -4,26 +4,17 @@
 " inoremap <esc> <nop>
 inoremap jk <esc>
 
-nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
-nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
-
 
 " Save & quit
 noremap Q :q<CR>
-noremap <C-q> :qa<CR>
+noremap <C-q> :qa!<CR>
 nnoremap <leader>w :w<cr> " 保存当前文件
 nnoremap <leader>W :W<cr> " sudo 保存当前文件
 
 nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
-if has ('autocmd') " Remain compatible with earlier versions
- augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost ~/.config/vimrc/basic.vim source % | echom "Reloaded" | redraw
-    " autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-  augroup END
-endif " has autocmd
 
-noremap <c-g> :tabe<cr>:-tabmove<cr>:term lazygit<cr>
+noremap <c-g> :FloatermNew lazygit<cr>
 
 " 在窗口中移动
 map <C-j> <C-w>j
@@ -40,6 +31,10 @@ noremap <right> :vertical resize-5<CR>
 " ===
 " === Tab management
 " ===
+
+" Disable the default t key
+noremap t <nop>
+
 " Create a new tab with tu
 noremap tn :tabe<cr>
 
@@ -51,7 +46,6 @@ noremap tx :tabclose<cr>
 noremap tmh :-tabmove<cr>
 noremap tml :+tabmove<cr>
 
-noremap xf :r !figlet 
 
 
 " Disable the default s key
@@ -68,3 +62,5 @@ nnoremap sx :q!<cr>
 noremap sn <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
+
+noremap xf :r !figlet 
