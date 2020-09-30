@@ -45,7 +45,7 @@ Plug 'vim-airline/vim-airline-themes' " 状态栏主题
 Plug 'liuchengxu/vim-which-key'       " 提示 <leader> 之后都有什么键绑定
 Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
 Plug 'mhinz/vim-startify'             " 启动页
-
+Plug 'voldikss/vim-floaterm'
 
 " File navigation
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
@@ -603,3 +603,8 @@ nnoremap <silent>K :call quickui#tools#clever_context('k', g:context_menu_k, {})
 if has('gui_running') || has('nvim')
 	noremap <c-f10> :call MenuHelp_TaskList()<cr>
 endif
+
+
+
+
+let g:floaterm_keymap_new = '<Leader>fn'
