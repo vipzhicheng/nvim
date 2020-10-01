@@ -1,7 +1,10 @@
 " 声明 coc 扩展 {{{
 let g:coc_global_extensions = [
+	\ 'coc-marketplace',
 	\ 'coc-css',
+	\ 'coc-deno',
 	\ 'coc-diagnostic',
+	\ 'coc-docker',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
 	\ 'coc-html',
@@ -10,12 +13,11 @@ let g:coc_global_extensions = [
 	\ 'coc-prettier',
 	\ 'coc-pyright',
 	\ 'coc-python',
+	\ 'coc-restclient',
 	\ 'coc-snippets',
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
-	\ 'coc-tasks',
-	\ 'coc-todolist',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
@@ -199,7 +201,7 @@ nnoremap ga <Plug>(EasyAlign)
 
 
 " ===
-" === coc
+" === Coc
 " ===
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -321,6 +323,9 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <C-e> <Plug>(coc-snippets-select)
 imap <C-e> <Plug>(coc-snippets-expand-jump)
 
+" coc-restclient
+nnoremap <leader>re :<C-u>CocCommand rest-client.request<CR>
+
 " ===
 " === EasyMotion
 " ===
@@ -417,13 +422,21 @@ call quickui#menu#install("&Edit", [
 			\ [ "&Yank History", 'CocList -A --normal yank'],
 			\ [ "&Yank Clean", 'CocCommand yank.clean'],
 			\ [ "--", ],
+      \ [ '&Find', 'CocList grep' ],
 			\ [ "E&xit", 'qa' ],
+			\ ])
+
+call quickui#menu#install("&View", [
+			\ [ "&Problem", 'CocList diagnostics'],
+			\ [ "--", ],
 			\ ])
 
 call quickui#menu#install('&Tools', [
 			\ ['List &Buffer', 'call quickui#tools#list_buffer("e")', ],
 			\ ['List &Function', 'call quickui#tools#list_function()', ],
 			\ ['Display &Messages', 'call quickui#tools#display_messages()', ],
+			\ ['--',''],
+      \ ['CocMarket', 'CocList marketplace'],
 			\ ['--',''],
 			\ ['&Spell %{&spell? "Disable":"Enable"}', 'set spell!', 'Toggle spell check %{&spell? "off" : "on"}'],
 			\ ["Relati&ve number %{&relativenumber? 'OFF':'ON'}", 'set relativenumber!'],
@@ -434,7 +447,12 @@ call quickui#menu#install('&Plugin', [
 			\ ["-"],
 			\ ["&Startify", "Startify", "using tpope's rhubarb to open browse and view the file"],
 			\ ["-"],
+			\ ["Plugin &Status", "PlugStatus", "Update plugin"],
 			\ ["Plugin &Update", "PlugUpdate", "Update plugin"],
+			\ ["-"],
+      \ ['CocMarket', 'CocList marketplace'],
+      \ ['CocUpdate', 'CocUpdate'],
+      \ ['CocConfig', 'CocConfig'],
 			\ ])
 
 call quickui#menu#install('Help (&?)', [
@@ -474,5 +492,10 @@ endif
 
 
 
-
+" ===
+" === Floaterm
+" ===
 let g:floaterm_keymap_new = '<Leader>fn'
+nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
+nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
+nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>

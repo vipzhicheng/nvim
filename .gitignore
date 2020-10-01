@@ -1,2 +1,23 @@
 local.vim
 plugged
+
+# create by https://github.com/iamcco/coc-gitignore (Thu Oct 01 2020 11:14:38 GMT+0800 (GMT+08:00))
+# Vim.gitignore:
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+# Auto-generated tag files
+tags
+# Persistent undo
+[._]*.un~
