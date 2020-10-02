@@ -1,4 +1,10 @@
 {
   "html.autoClosingTags": true,
-  "rest-client.showHeaders": false
+  "rest-client.showHeaders": false,
+  "snippets.ultisnips.directories": [
+    "UltiSnips",
+    "$HOME/.config/nvim/Ultisnips",
+    "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips"
+  ]
+
 }

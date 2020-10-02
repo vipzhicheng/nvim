@@ -322,8 +322,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
 imap <C-e> <Plug>(coc-snippets-expand-jump)
-let g:coc_snippet_next = '<c-y>'
-let g:coc_snippet_prev = '<c-n>'
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 
 " coc-restclient
 nnoremap <leader>re :<C-u>CocCommand rest-client.request<CR>

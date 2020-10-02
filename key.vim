@@ -11,7 +11,7 @@ noremap <C-q> :qa!<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :W<cr>
 
-nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
+nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/nvim/basic.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
 
 noremap <c-g> :FloatermNew lazygit<cr>
