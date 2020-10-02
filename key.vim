@@ -8,8 +8,8 @@ inoremap jk <esc>
 " Save & quit
 noremap Q :q<CR>
 noremap <C-q> :qa!<CR>
-nnoremap <leader>w :w<cr> " 保存当前文件
-nnoremap <leader>W :W<cr> " sudo 保存当前文件
+nnoremap <leader>w :w<cr>
+nnoremap <leader>W :W<cr>
 
 nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/vimrc/basic.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
@@ -32,9 +32,6 @@ noremap <right> :vertical resize-5<CR>
 " === Tab management
 " ===
 
-" Disable the default t key
-noremap t <nop>
-
 " Create a new tab with tu
 noremap tn :tabe<cr>
 
@@ -47,9 +44,6 @@ noremap tmh :-tabmove<cr>
 noremap tml :+tabmove<cr>
 
 
-
-" Disable the default s key
-noremap s <nop>
 
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sj :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>

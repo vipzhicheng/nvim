@@ -21,6 +21,7 @@ let g:coc_global_extensions = [
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
+	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
@@ -327,6 +328,11 @@ let g:coc_snippet_prev = '<c-n>'
 " coc-restclient
 nnoremap <leader>re :<C-u>CocCommand rest-client.request<CR>
 
+" coc-translator
+nnoremap ts :<C-u>CocCommand translator.popup<CR>
+
+
+
 " ===
 " === EasyMotion
 " ===
@@ -383,6 +389,8 @@ let g:NERDToggleCheckAllLines = 1
 " ===
 " === which-key
 " ===
+nnoremap <silent> s      :<c-u>WhichKey 's'<CR>
+nnoremap <silent> t      :<c-u>WhichKey 't'<CR>
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
@@ -533,3 +541,4 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
+
