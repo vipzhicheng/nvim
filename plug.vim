@@ -1,5 +1,6 @@
 " 声明 coc 扩展 {{{
 let g:coc_global_extensions = [
+	\ 'coc-actions',
 	\ 'coc-marketplace',
 	\ 'coc-css',
 	\ 'coc-deno',
@@ -7,9 +8,11 @@ let g:coc_global_extensions = [
 	\ 'coc-docker',
 	\ 'coc-flutter-tools',
 	\ 'coc-gitignore',
+	\ 'coc-go',
 	\ 'coc-html',
 	\ 'coc-json',
 	\ 'coc-lists',
+	\ 'coc-phpls',
 	\ 'coc-prettier',
 	\ 'coc-pyright',
 	\ 'coc-python',
@@ -50,6 +53,7 @@ Plug 'kevinhwang91/rnvimr'                                        " 整合 range
 Plug 'preservim/nerdtree'                                         " 资源管理器
 Plug 'airblade/vim-rooter'                                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                                      " 跳转文件
+Plug 'brooth/far.vim'
 
 " Editor
 Plug 'honza/vim-snippets'           " 社区代码片段
@@ -63,6 +67,11 @@ Plug 'jiangmiao/auto-pairs'         " 括号自动匹配
 Plug 'preservim/nerdcommenter'      " 注释
 Plug 'tpope/vim-surround'           " 用符号包围字符串
 Plug 'mattn/emmet-vim'              " HTML 智能补全
+Plug 'dhruvasagar/vim-table-mode'
+
+" Language
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 call plug#end()
 " }}}
@@ -74,7 +83,7 @@ colorscheme gruvbox
 " ===
 " noremap <silent> <C-p> :Files<cr>
 noremap <silent> <C-p> :Leaderf file<cr>
-noremap <silent> <C-e> :LeaderfMru<cr>
+noremap <silent> <C-t> :LeaderfMru<cr>
 noremap <silent> <C-b> :LeaderfBuffer<cr>
 noremap <silent> <C-f> :LeaderfFunction<cr>
 noremap <silent> <C-m> :RG<cr>
@@ -171,7 +180,7 @@ noremap rr :AirlineTheme random<cr>
 " ===
 " === Undotree
 " ===
-noremap <LEADER>do :UndotreeToggle<cr>
+noremap U :UndotreeToggle<cr>
 let g:undotree_DiffAutoOpen = 1
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_ShortIndicators = 1
@@ -214,18 +223,14 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-e> coc#refresh()
 
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>= <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -233,6 +238,7 @@ nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -241,8 +247,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
@@ -280,10 +284,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -301,7 +301,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>d  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 " Show commands.
@@ -320,8 +320,9 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " coc-snippets
 imap <C-l> <Plug>(coc-snippets-expand)
-vmap <C-e> <Plug>(coc-snippets-select)
 imap <C-e> <Plug>(coc-snippets-expand-jump)
+let g:coc_snippet_next = '<c-y>'
+let g:coc_snippet_prev = '<c-n>'
 
 " coc-restclient
 nnoremap <leader>re :<C-u>CocCommand rest-client.request<CR>
@@ -440,6 +441,7 @@ call quickui#menu#install('&Tools', [
 			\ ['--',''],
 			\ ['&Spell %{&spell? "Disable":"Enable"}', 'set spell!', 'Toggle spell check %{&spell? "off" : "on"}'],
 			\ ["Relati&ve number %{&relativenumber? 'OFF':'ON'}", 'set relativenumber!'],
+			\ ["Toggle S&croll Mode", 'call ToggleScrollMode()'],
 			\ ])
 
 call quickui#menu#install('&Plugin', [
@@ -499,3 +501,35 @@ let g:floaterm_keymap_new = '<Leader>fn'
 nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
 nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
 nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>
+
+
+" ===
+" === vim-go
+" ===
+let g:go_echo_go_info = 0
+let g:go_doc_popup_window = 1
+let g:go_def_mapping_enabled = 0
+let g:go_template_autocreate = 0
+let g:go_textobj_enabled = 0
+let g:go_auto_type_info = 1
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_types = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_variable_declarations = 0
+let g:go_doc_keywordprg_enabled = 0

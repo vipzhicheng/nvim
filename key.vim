@@ -64,3 +64,5 @@ noremap sn <C-w>t<C-w>K
 noremap sv <C-w>t<C-w>H
 
 noremap xf :r !figlet 
+
+

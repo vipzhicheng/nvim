@@ -18,11 +18,11 @@ set cursorcolumn     " 当前列高亮
 set confirm          " 退出vim确认
 
 set scrolloff=7     " 开启光标在文件首尾的相对位置
-set cmdheight=2
 
 set autoread         " 当外部文件变更时自动加载
-set updatetime=300   " 这个值大致的意思是输入完成和触发插件的时间间隔
+set updatetime=100   " 这个值大致的意思是输入完成和触发插件的时间间隔
 set lazyredraw       " 延迟绘制
+set shortmess+=c
 
 
 " set spell   " 拼写检查
@@ -90,7 +90,19 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " :W 用 sudo 的方�
 " }}}
 
 " 自定义函数 {{{
-
+function! ToggleScrollMode()
+    if exists("s:scroll_mode")
+        unmap k
+        unmap j
+        unlet s:scroll_mode
+	echom "scroll mode off"
+    else
+        nnoremap j <C-e>j
+        nnoremap k <C-y>k
+        let s:scroll_mode = 1 
+	echom "scroll mode on"
+    endif
+endfunction
 
 " }}}
 
