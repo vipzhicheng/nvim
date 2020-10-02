@@ -1,31 +1,26 @@
-# 私人定制 vimrc
+# 私人定制 nvim
 
-用别人的 `vim` 配置总是不能很好的掌握，还是自己攒一个吧，在攒的过程中学习和理解。
+不知从什么时候开始，觉得没有必要同时兼容 nvim 和 vim 了，宁可分开维护，所以本项目从最开始的打算兼容到现在的直接改名成 nvim。
+
+用别人的 `vim` 配置总是不能很好的掌握，还是自己从头一个吧，在过程中学习和理解。
 
 ## 使用方式
 
-假设刚安装 `vim` 还没有进行任何个性化配置。
 
 ```
-git clone https://github.com/vipzhicheng/vimrc.git ~/.config/vimrc
-```
-
-然后编辑 `~/.vimrc` 文件，添加
-
-```
-source ~/.config/vimrc/index.vim
+git clone https://github.com/vipzhicheng/nvim.git ~/.config/nvim
 ```
 
 ## 升级
 
 ```
-cd ~/.config/vimrc
+cd ~/.config/nvim
 git pull -r
 ```
 
 ## 定制
 
-在 `~/.config/vimrc/local.vim` 中定制私有配置，不影响升级。
+在 `~/.config/nvim/local.vim` 中定制私有配置，不影响升级。
 
 ## 项目使用方式
 
@@ -37,9 +32,10 @@ git pull -r
 
 ## 更多文档参考
 
-* docs/HELP.md 记录一些使用心得，文档里都有，这里是按照我学会的顺序来维护的，不成体系
+* docs/HELP.md 记录一些使用心得 和 VIM 使用技巧，官方文档里都有，这里是按照我学会的顺序来维护的，不成体系
 * docs/INSTALL.md 安装 neovim 和一些底层依赖（npm/ruby/python）
 * docs/REQUIREMENTS.md 一些第三方依赖的安装方式（figlet/fzf/ranger/...）
+* docs/USAGE.md 综合各种配置而形成的帮助文档，很明显，随着插件的不同，键位的不同，这个文档也会跟着变。
 
 ## 许可协议
 
