@@ -31,7 +31,7 @@ let g:coc_global_extensions = [
 " }}}
 
 " 声明 VIM Plug 启用插件 {{{
-call plug#begin('~/.config/vimrc/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Pretty Dress
 " Plug 'morhetz/gruvbox'   " 另一个主题

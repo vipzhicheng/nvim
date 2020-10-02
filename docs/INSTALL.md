@@ -1,21 +1,11 @@
 # 安装
 
-在做最基本的 `source` 动作之后，还需要安装一些依赖环境，这里以 `neovim` 为例，如果是 `vim` 可能略有差异。
-
 ## 安装 neovim
 
 ### Mac
 
 ```
 brew install neovim
-```
-
-然后编辑 `~/.config/nvim/init.vim`，添加
-
-```
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.config/vimrc/index.vim
 ```
 
 ### CentOS 7/8
