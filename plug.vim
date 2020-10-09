@@ -43,12 +43,14 @@ Plug 'vim-airline/vim-airline'        " 状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题
 Plug 'liuchengxu/vim-which-key'       " 提示 <leader> 之后都有什么键绑定
 Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
-Plug 'mhinz/vim-startify'             " 启动页
+" Plug 'mhinz/vim-startify'             " 启动页
+Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
 Plug 'flazz/vim-colorschemes'         " 一大堆主题
 
 " File navigation
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
 Plug 'preservim/nerdtree'                                         " 资源管理器
@@ -542,3 +544,36 @@ let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
 
+
+" ===
+" === Dashboard
+" ===
+let g:dashboard_default_executive ='fzf'
+let g:dashboard_default_header = 'cres'
+nmap <Leader>ss :<C-u>SessionSave<CR>
+nmap <Leader>sl :<C-u>SessionLoad<CR>
+nmap <Leader>fc :<C-u>DashboardNewFile<CR>
+nnoremap <silent> <Leader>fh :History<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>tc :Colors<CR>
+nnoremap <silent> <Leader>fa :Rg<CR>
+nnoremap <silent> <Leader>fb :Marks<CR>
+nnoremap <silent> <Leader>fc :<C-u>DashboardNewFile<CR>
+
+let g:dashboard_custom_shortcut={
+  \ 'last_session'       : 'SPC s l',
+  \ 'find_history'       : 'SPC f h',
+  \ 'find_file'          : 'SPC f f',
+  \ 'new_file'           : 'SPC c n',
+  \ 'change_colorscheme' : 'SPC t c',
+  \ 'find_word'          : 'SPC f a',
+  \ 'book_marks'         : 'SPC f b',
+  \ }
+
+" ===
+" === FZF
+" ===
+set rtp+=/Users/zhicheng/.fzf
+let g:fzf_preview_window = 'right:60%'
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
