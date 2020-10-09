@@ -493,7 +493,7 @@ let g:context_menu_k = [
 "----------------------------------------------------------------------
 " hotkey
 "----------------------------------------------------------------------
-nnoremap <silent><space><space> :call quickui#menu#open()<cr>
+nnoremap <silent>M :call quickui#menu#open()<cr>
 
 nnoremap <silent>K :call quickui#tools#clever_context('k', g:context_menu_k, {})<cr>
 

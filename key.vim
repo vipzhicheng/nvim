@@ -59,4 +59,5 @@ noremap sv <C-w>t<C-w>H
 
 noremap xf :r !figlet 
 
+nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
 
