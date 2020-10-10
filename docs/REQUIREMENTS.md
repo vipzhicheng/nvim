@@ -82,3 +82,35 @@ brew install the_silver_searcher
 ```
 dnf install the_silver_searcher
 ```
+
+## ctags
+
+为了让一些tag类的插件工作，这里主要是指 `Vista`，需要安装ctags，并且不是 XCode 自带的 `ctags`，安装[插件文档](https://github.com/liuchengxu/vista.vim#compile-ctags-with-json-format-support)，安装方式如下：
+
+### Mac
+
+```
+sudo mv /usr/local/bin/ctags /usr/local/bin/ctags.origin # 原来的也不敢删，万一还有用呢
+brew tap universal-ctags/universal-ctags
+brew install --with-jansson --HEAD universal-ctags/universal-ctags/universal-ctags
+```
+
+### Ubuntu
+
+Ubuntu的场景还没遇到过，先记录一下：
+
+```
+# install libjansson first
+$ sudo apt-get install libjansson-dev
+
+# then compile and install universal-ctags.
+#
+# NOTE: Don't use `sudo apt install ctags`, which will install exuberant-ctags and it's not guaranteed to work with vista.vim.
+#
+$ git clone https://github.com/universal-ctags/ctags.git --depth=1
+$ cd ctags
+$ ./autogen.sh
+$ ./configure
+$ make
+$ sudo make install
+```
