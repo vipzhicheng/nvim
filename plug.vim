@@ -87,10 +87,9 @@ colorscheme gruvbox
 " ===
 " noremap <silent> <C-p> :Files<cr>
 noremap <silent> <C-p> :Leaderf file<cr>
-noremap <silent> <C-t> :LeaderfMru<cr>
+noremap <silent> <C-e> :LeaderfMru<cr>
 noremap <silent> <C-b> :LeaderfBuffer<cr>
 noremap <silent> <C-f> :LeaderfFunction<cr>
-noremap <silent> <C-m> :RG<cr>
 "noremap <silent> <C-h> :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
@@ -191,10 +190,6 @@ let g:undotree_ShortIndicators = 1
 let g:undotree_WindowLayout = 2
 let g:undotree_DiffpanelHeight = 8
 let g:undotree_SplitWidth = 24
-function g:Undotree_CustomMap()
-	nnoremap <buffer> j <plug>UndotreeNextState
-	nnoremap <buffer> k <plug>UndotreePreviousState
-endfunc
 
 " ===
 " === goyo
