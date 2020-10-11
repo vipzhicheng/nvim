@@ -70,14 +70,17 @@ Plug 'jiangmiao/auto-pairs'         " 括号自动匹配
 Plug 'preservim/nerdcommenter'      " 注释
 Plug 'tpope/vim-surround'           " 用符号包围字符串
 Plug 'mattn/emmet-vim'              " HTML 智能补全
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'dhruvasagar/vim-table-mode'   " Markdown 表格模式
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markdown 预览
 Plug 'Yggdroot/indentLine'
-Plug 'luochen1990/rainbow'
+"Plug 'itchyny/vim-cursorword'       " 标识附近相同单词
+Plug 'lfv89/vim-interestingwords'   " 高亮单词
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
+" PDF
+"Plug 'makerj/vim-pdf'
 
 call plug#end()
 " }}}
@@ -127,7 +130,7 @@ let g:rnvimr_pick_enable = 1
 let g:rnvimr_draw_border = 0
 " let g:rnvimr_bw_enable = 1
 highlight link RnvimrNormal CursorLine
-nnoremap <silent> R :RnvimrToggle<cr><C-\><C-n>:RnvimrResize 0<cr>
+nnoremap <silent> ra :RnvimrToggle<cr><C-\><C-n>:RnvimrResize 0<cr>
 let g:rnvimr_action = {
             \ '<C-t>': 'NvimEdit tabedit',
             \ '<C-x>': 'NvimEdit split',
@@ -507,6 +510,7 @@ let g:floaterm_keymap_new = '<Leader>fn'
 nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
 nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
 nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>
+let g:floaterm_keymap_toggle = '<F12>'
 
 
 " ===
@@ -669,4 +673,5 @@ nnoremap <leader>pv :MarkdownPreview<CR>
 " ===
 " === indentLine
 " ===
-let g:indentLine_enabled = 0
+let g:indentLine_enabled = 1
+let g:indentLine_fileTypeExclude = ['dashboard']

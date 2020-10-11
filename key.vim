@@ -7,14 +7,14 @@ inoremap jk <esc>
 
 " Save & quit
 noremap Q :q<CR>
-noremap <C-q> :qa!<CR>
+noremap <C-q> :q<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :W<cr>
 
 nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/nvim/basic.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
 
-noremap <c-g> :FloatermNew lazygit<cr>
+noremap <c-g> :FloatermNew --autoclose=1 lazygit<cr>
 
 " 在窗口中移动
 map <C-j> <C-w>j
@@ -60,4 +60,8 @@ noremap sv <C-w>t<C-w>H
 noremap xf :r !figlet 
 
 nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
+
+noremap <C-r> :call CompileAndRun()<cr>
+noremap r :call CompileAndRun()<cr>
+
 

@@ -16,6 +16,7 @@ set nowrap           " 不主动换行
 set cursorline       " 当前行高亮
 set cursorcolumn     " 当前列高亮
 set confirm          " 退出vim确认
+set list
 
 set scrolloff=7     " 开启光标在文件首尾的相对位置
 
@@ -102,6 +103,39 @@ function! ToggleScrollMode()
         let s:scroll_mode = 1 
 	echom "scroll mode on"
     endif
+endfunction
+
+function! CompileAndRun()
+  exec "w"
+  if &filetype == "python"
+    set splitbelow
+    :sp
+    :term python3 %
+  elseif &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		set splitbelow
+		exec "!g++ -std=c++11 % -Wall -o %<"
+		:sp
+		:res -15
+		:term ./%<
+  elseif &filetype == 'markdown'
+		exec "InstantMarkdownPreview"
+  elseif &filetype == 'javascript'
+		set splitbelow
+		:sp
+		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+	elseif &filetype == 'go'
+		set splitbelow
+		:sp
+		:term go run .
+  elseif &filetype == 'sh'
+		:!time bash %
+  elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!time java %<"
+  endif
 endfunction
 
 " }}}
