@@ -72,6 +72,8 @@ Plug 'tpope/vim-surround'           " 用符号包围字符串
 Plug 'mattn/emmet-vim'              " HTML 智能补全
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'Yggdroot/indentLine'
+Plug 'luochen1990/rainbow'
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -663,3 +665,8 @@ let g:mkdp_port = ''
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
 nnoremap <leader>pv :MarkdownPreview<CR>
+
+" ===
+" === indentLine
+" ===
+let g:indentLine_enabled = 0
