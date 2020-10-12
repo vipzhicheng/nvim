@@ -73,14 +73,10 @@ Plug 'mattn/emmet-vim'              " HTML 智能补全
 Plug 'dhruvasagar/vim-table-mode'   " Markdown 表格模式
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markdown 预览
 Plug 'Yggdroot/indentLine'
-"Plug 'itchyny/vim-cursorword'       " 标识附近相同单词
 Plug 'lfv89/vim-interestingwords'   " 高亮单词
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" PDF
-"Plug 'makerj/vim-pdf'
 
 call plug#end()
 " }}}
@@ -94,6 +90,7 @@ colorscheme gruvbox
 noremap <silent> <C-p> :Leaderf file<cr>
 noremap <silent> <C-e> :LeaderfMru<cr>
 noremap <silent> <C-b> :LeaderfBuffer<cr>
+noremap <silent> B :LeaderfBuffer<cr>
 noremap <silent> <C-f> :LeaderfFunction<cr>
 "noremap <silent> <C-h> :History<cr>
 "noremap <C-t> :BTags<cr>
