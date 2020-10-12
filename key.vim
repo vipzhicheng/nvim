@@ -48,8 +48,8 @@ noremap tml :+tabmove<cr>
 " split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
 noremap sj :set nosplitbelow<cr>:split<cr>:set splitbelow<cr>
 noremap sk :set splitbelow<cr>:split<cr>
-noremap sh :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
-noremap sl :set splitright<cr>:vsplit<cr>
+noremap sl :set nosplitright<cr>:vsplit<cr>:set splitright<cr>
+noremap sh :set splitright<cr>:vsplit<cr>
 nnoremap sx :q!<cr>
 
 " Place the two screens up and down
@@ -57,11 +57,9 @@ noremap sn <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
 
-noremap xf :r !figlet 
-
 nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
 
 noremap <C-r> :call CompileAndRun()<cr>
-noremap r :call CompileAndRun()<cr>
+noremap R :call CompileAndRun()<cr>
 
 

@@ -503,7 +503,7 @@ endif
 " ===
 " === Floaterm
 " ===
-let g:floaterm_keymap_new = '<Leader>fn'
+nnoremap   <silent>   <leader>fn    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
 nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
 nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
 nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>

@@ -17,6 +17,7 @@ set cursorline       " 当前行高亮
 set cursorcolumn     " 当前列高亮
 set confirm          " 退出vim确认
 set list
+set clipboard=unnamed
 
 set scrolloff=7     " 开启光标在文件首尾的相对位置
 
