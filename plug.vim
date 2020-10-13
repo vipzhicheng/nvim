@@ -394,7 +394,6 @@ let g:NERDToggleCheckAllLines = 1
 nnoremap <silent> s      :<c-u>WhichKey 's'<CR>
 nnoremap <silent> t      :<c-u>WhichKey 't'<CR>
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
 " ===
 " === quickui

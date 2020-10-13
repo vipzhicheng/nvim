@@ -37,7 +37,7 @@ augroup END
 
 " 设置快捷键绑定的触发键
 let mapleader = " "
-let g:maplocalleader = ','
+let g:maplocalleader = '\'
 
 
 " 按文件加载配置 {{{
