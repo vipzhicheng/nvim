@@ -5,6 +5,7 @@
     "UltiSnips",
     "$HOME/.config/nvim/Ultisnips",
     "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips"
-  ]
+  ],
+  "tsserver.maxTsServerMemory": 512
 
 }
