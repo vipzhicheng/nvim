@@ -48,6 +48,8 @@ Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
 Plug 'flazz/vim-colorschemes'         " 一大堆主题
 
+Plug 'tpope/vim-fugitive'
+
 " File navigation
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
 Plug 'junegunn/fzf.vim'
@@ -74,6 +76,7 @@ Plug 'dhruvasagar/vim-table-mode'   " Markdown 表格模式
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markdown 预览
 Plug 'Yggdroot/indentLine'
 Plug 'lfv89/vim-interestingwords'   " 高亮单词
+Plug 'tpope/vim-abolish'            " 变量名变换
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -87,6 +90,7 @@ colorscheme gruvbox
 " === LeaderF
 " ===
 " noremap <silent> <C-p> :Files<cr>
+noremap <silent> <leader>f <nop>
 noremap <silent> <C-p> :Leaderf file<cr>
 noremap <silent> <C-e> :LeaderfMru<cr>
 noremap <silent> <C-b> :LeaderfBuffer<cr>
@@ -503,10 +507,9 @@ endif
 " ===
 " === Floaterm
 " ===
-nnoremap   <silent>   <leader>fn    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
+nnoremap   <silent>   <leader><leader>    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
 nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
 nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
-nnoremap   <silent>   <leader>ft   :FloatermToggle<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 
 

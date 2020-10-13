@@ -11,7 +11,8 @@ noremap <C-q> :q<CR>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>W :W<cr>
 
-nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/nvim/basic.vim<cr>
+" nnoremap <leader>rc :set splitright<cr>:vsplit ~/.config/nvim/basic.vim<cr>
+nnoremap <leader>rc :e ~/.config/nvim/plug.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
 
 noremap <c-g> :FloatermNew --autoclose=1 lazygit<cr>
@@ -56,8 +57,6 @@ nnoremap sx :q!<cr>
 noremap sn <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
-
-nnoremap <leader><leader> <esc>/<++><cr>:nohlsearch<cr>c4l
 
 noremap <C-r> :call CompileAndRun()<cr>
 noremap R :call CompileAndRun()<cr>
