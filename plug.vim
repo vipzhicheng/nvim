@@ -59,6 +59,7 @@ Plug 'preservim/nerdtree'                                         " 资源管理
 Plug 'airblade/vim-rooter'                                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                                      " 跳转文件
 Plug 'brooth/far.vim'
+Plug 'MattesGroeger/vim-bookmarks'
 
 " Editor
 Plug 'honza/vim-snippets'           " 社区代码片段
