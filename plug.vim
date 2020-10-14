@@ -59,7 +59,8 @@ Plug 'preservim/nerdtree'                                         " 资源管理
 Plug 'airblade/vim-rooter'                                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                                      " 跳转文件
 Plug 'brooth/far.vim'
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
+Plug 'kshenoy/vim-signature'
 
 " Editor
 Plug 'honza/vim-snippets'           " 社区代码片段
@@ -81,6 +82,10 @@ Plug 'tpope/vim-abolish'            " 变量名变换
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Tool
+
+Plug 'lyokha/vim-xkbswitch'
 
 call plug#end()
 " }}}
@@ -675,3 +680,9 @@ nnoremap <leader>pv :MarkdownPreview<CR>
 " ===
 let g:indentLine_enabled = 1
 let g:indentLine_fileTypeExclude = ['dashboard']
+
+
+" ===
+" === vim xkbswitch
+" ===
+let g:XkbSwitchEnabled = 1
