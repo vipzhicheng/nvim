@@ -114,3 +114,15 @@ $ ./configure
 $ make
 $ sudo make install
 ```
+
+## xkbswitch
+
+很多时候国内的开发者开发时还是要在代码当中输入中文的，但是还需要回到 `normal` 模式去做各种移动和跳转，这时如果还保留在中文输入发，快捷键绑定就不好用了，以下是这个问题的解决方案。
+
+1. `git clone https://github.com/myshov/xkbswitch-macosx.git`
+2. `cp xkbswitch-macosx/bin/xkbswitch /usr/local/bin`
+3. `git clone https://github.com/myshov/libxkbswitch-macosx.git`
+4. `cp libxkbswitch-macosx/bin/libxkbswitch /usr/local/lib`
+5. 安装插件：https://github.com/lyokha/vim-xkbswitch
+
+虽然插件的文档很长，不过根据测试，0配置就能获得我们想要的效果了。
