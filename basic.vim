@@ -84,7 +84,6 @@ endif
 
 " 简写和纠错 
 iabbrev waht what
-iabbrev tehn then
 
 " 自定义命令 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " :W 用 sudo 的方式来保存当前文件，适用于打开文件时没加 sudo 导致没有权限写的问题
@@ -134,6 +133,8 @@ function! CompileAndRun()
   elseif &filetype == 'java'
 		exec "!javac %"
 		exec "!time java %<"
+  else
+    echom "Undefined CompileAndRun"
   endif
 endfunction
 

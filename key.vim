@@ -58,7 +58,6 @@ noremap sn <C-w>t<C-w>K
 " Place the two screens side by side
 noremap sv <C-w>t<C-w>H
 
-noremap <C-r> :call CompileAndRun()<cr>
 noremap R :call CompileAndRun()<cr>
 
 

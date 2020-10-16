@@ -174,7 +174,7 @@ let g:rnvimr_presets = [
 set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
-autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
+autocmd FileType dashboard set showtabline=0 | autocmd BufLeave <buffer> set showtabline=2
 let g:airline_theme='base16_brewer'
 let g:airline_extensions = ['tabline']
 let g:airline_highlighting_cache = 1
@@ -509,8 +509,6 @@ endif
 " === Floaterm
 " ===
 nnoremap   <silent>   <leader><leader>    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
-nnoremap   <silent>   <leader>fh    :FloatermPrev<CR>
-nnoremap   <silent>   <leader>fl    :FloatermNext<CR>
 let g:floaterm_keymap_toggle = '<F12>'
 
 
@@ -557,11 +555,12 @@ nmap <Leader>fc :<C-u>DashboardNewFile<CR>
 nnoremap <silent> <Leader>fh :History<CR>
 nnoremap <silent> <Leader>ff :Files<CR>
 nnoremap <silent> <Leader>tc :Colors<CR>
-nnoremap <silent> <Leader>fa :Rg<CR>
+nnoremap <silent> <Leader>fa :Ag<CR>
 nnoremap <silent> <Leader>fb :Marks<CR>
 nnoremap <silent> <Leader>fc :<C-u>DashboardNewFile<CR>
 
 let g:dashboard_custom_shortcut={
+  \ 'edit_vimrc'       : 'SPC r c',
   \ 'last_session'       : 'SPC s l',
   \ 'find_history'       : 'SPC f h',
   \ 'find_file'          : 'SPC f f',
@@ -571,13 +570,50 @@ let g:dashboard_custom_shortcut={
   \ 'book_marks'         : 'SPC f b',
   \ }
 
-let g:dashboard_custom_section={
-  \ 'edit_vimrc': ['  Adjust vim configuration again                 SPC r c'],
-  \ }
-func! EDIT_VIMRC () 
-  :e ~/.config/nvim/plug.vim
-endfunction 
+let g:dashboard_shortcut_icon = {}
+let g:dashboard_shortcut_icon['edit_vimrc'] = '  '
+let g:dashboard_shortcut_icon['last_session'] = '  '
+let g:dashboard_shortcut_icon['find_history'] = '  '
+let g:dashboard_shortcut_icon['find_file'] = '  '
+let g:dashboard_shortcut_icon['new_file'] = '  '
+let g:dashboard_shortcut_icon['change_colorscheme'] = '  '
+let g:dashboard_shortcut_icon['find_word'] = '  '
+let g:dashboard_shortcut_icon['book_marks'] = '  '
 
+let g:dashboard_custom_section = {
+  \ 'a_edit_vimrc'           :[g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc again!                  '.g:dashboard_custom_shortcut['edit_vimrc']],
+  \ 'last_session'         :[g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
+  \ 'find_history'         :[g:dashboard_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
+  \ 'find_file'            :[g:dashboard_shortcut_icon['find_file'].'Find  File                            '.g:dashboard_custom_shortcut['find_file']],
+  \ 'new_file'             :[g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
+  \ 'change_colorscheme'   :[g:dashboard_shortcut_icon['change_colorscheme'].'Change Colorscheme                    '.g:dashboard_custom_shortcut['change_colorscheme']],
+  \ 'find_word'            :[g:dashboard_shortcut_icon['find_word'].'Find  word                            '.g:dashboard_custom_shortcut['find_word']],
+  \ 'book_marks'           :[g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
+  \ }
+func! A_EDIT_VIMRC ()
+  :e ~/.config/nvim/plug.vim
+endfunction
+function! LAST_SESSION()
+  SessionLoad 
+endfunction
+function! FIND_HISTORY()
+  DashboardFindHistory
+endfunction
+function! FIND_FILE()
+  DashboardFindFile
+endfunction
+function! NEW_FILE()
+  DashboardNewFile
+endfunction
+function! CHANGE_COLORSCHEME()
+  DashboardChangeColorscheme
+endfunction
+function! FIND_WORD()
+  DashboardFindWord
+endfunction
+function! BOOK_MARKS()
+  DashboardJumpMarks 
+endfunction
 " ===
 " === FZF
 " ===
