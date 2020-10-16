@@ -45,7 +45,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
 
 " File navigation
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
@@ -91,12 +91,11 @@ colorscheme snazzy
 " === LeaderF
 " ===
 " noremap <silent> <C-p> :Files<cr>
-noremap <silent> <leader>f <nop>
-noremap <silent> <C-p> :Leaderf file<cr>
-noremap <silent> <C-e> :LeaderfMru<cr>
-noremap <silent> <C-b> :LeaderfBuffer<cr>
-noremap <silent> B :LeaderfBuffer<cr>
-noremap <silent> <C-f> :LeaderfFunction<cr>
+" noremap <silent> <leader>f <nop>
+" noremap <silent> <C-p> :Leaderf file<cr>
+" noremap <silent> <C-e> :LeaderfMru<cr>
+" noremap <silent> <C-b> :LeaderfBuffer<cr>
+" noremap <silent> <C-f> :LeaderfFunction<cr>
 "noremap <silent> <C-h> :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
@@ -175,9 +174,9 @@ let g:rnvimr_presets = [
 set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
+autocmd FileType dashboard set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2
 let g:airline_theme='base16_brewer'
 let g:airline_extensions = ['tabline']
-let g:airline#extensions#tabline#enabled = 1
 let g:airline_highlighting_cache = 1
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
@@ -571,6 +570,13 @@ let g:dashboard_custom_shortcut={
   \ 'find_word'          : 'SPC f a',
   \ 'book_marks'         : 'SPC f b',
   \ }
+
+let g:dashboard_custom_section={
+  \ 'edit_vimrc': ['  Adjust vim configuration again                 SPC r c'],
+  \ }
+func! EDIT_VIMRC () 
+  :e ~/.config/nvim/plug.vim
+endfunction 
 
 " ===
 " === FZF
