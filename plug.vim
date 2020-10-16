@@ -80,7 +80,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Tool
 
 Plug 'lyokha/vim-xkbswitch'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
