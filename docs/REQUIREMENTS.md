@@ -122,7 +122,7 @@ $ sudo make install
 1. `git clone https://github.com/myshov/xkbswitch-macosx.git`
 2. `cp xkbswitch-macosx/bin/xkbswitch /usr/local/bin`
 3. `git clone https://github.com/myshov/libxkbswitch-macosx.git`
-4. `cp libxkbswitch-macosx/bin/libxkbswitch /usr/local/lib`
+4. `cp libxkbswitch-macosx/bin/libxkbswitch.dylib /usr/local/lib`
 5. 安装插件：https://github.com/lyokha/vim-xkbswitch
 
 虽然插件的文档很长，不过根据测试，0配置就能获得我们想要的效果了。

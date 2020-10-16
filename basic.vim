@@ -10,7 +10,7 @@ set path+=**         " 支持简单的模糊搜索
 set wildmenu         " 文件名自动补全时显示所有匹配的文件
 set history=500      " 保留多少操作历史
 set hidden           " 允许不保存就切换 buffer
-set relativenumber   " 开启相对行号
+"set relativenumber   " 开启相对行号
 set number           " 显示行号
 set nowrap           " 不主动换行
 set cursorline       " 当前行高亮

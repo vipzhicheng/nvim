@@ -38,6 +38,14 @@ vim -V20logfile
 
 会在当前目录找到一个 logfile，打开就可以看到日志了。
 
+
+### 查看vim启动时间
+
+```
+vim --startuptime vim.log
+vim vim.log
+```
+
 ### 粘贴格式错乱
 
 有两种解决方法，方法一

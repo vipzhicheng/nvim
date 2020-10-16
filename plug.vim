@@ -86,6 +86,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Tool
 
 Plug 'lyokha/vim-xkbswitch'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 " }}}
@@ -686,3 +688,9 @@ let g:indentLine_fileTypeExclude = ['dashboard']
 " === vim xkbswitch
 " ===
 let g:XkbSwitchEnabled = 1
+
+" ===
+" === vimwiki
+" ===
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
