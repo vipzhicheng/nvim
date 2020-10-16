@@ -47,7 +47,7 @@ Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
 Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
 Plug 'flazz/vim-colorschemes'         " 一大堆主题
-
+Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
 
 " File navigation
@@ -92,7 +92,7 @@ Plug 'vimwiki/vimwiki'
 call plug#end()
 " }}}
 
-colorscheme gruvbox
+colorscheme snazzy
 
 " ===
 " === LeaderF
@@ -694,3 +694,9 @@ let g:XkbSwitchEnabled = 1
 " ===
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+
+" ===
+" === snazzy
+" ===
+let g:SnazzyTransparent = 1
