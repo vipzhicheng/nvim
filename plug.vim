@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Pretty Dress
 " Plug 'morhetz/gruvbox'   " 另一个主题
 Plug 'theniceboy/vim-deus'            " 一个主题
-Plug 'TaDaa/vimade'                   " 光标所在区域高亮
+"Plug 'TaDaa/vimade'                   " 光标所在区域高亮
 Plug 'ryanoasis/vim-devicons'         " 资源管理器文件图标
 Plug 'junegunn/goyo.vim'              " 专注模式
 Plug 'vim-airline/vim-airline'        " 状态栏
