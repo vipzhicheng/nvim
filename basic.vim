@@ -1,4 +1,4 @@
-" 常规配置 {{{
+" 常规配置 
 
 set nocompatible     " 禁用 vi 兼容模式
 
@@ -24,6 +24,7 @@ set scrolloff=7     " 开启光标在文件首尾的相对位置
 set autoread         " 当外部文件变更时自动加载
 set updatetime=100   " 这个值大致的意思是输入完成和触发插件的时间间隔
 set lazyredraw       " 延迟绘制
+set ttyfast
 set shortmess+=c
 
 
@@ -79,19 +80,16 @@ if has('autocmd')
 endif
 
 
-" }}}
+" 
 
-" 简写和纠错 {{{
+" 简写和纠错 
 iabbrev waht what
 iabbrev tehn then
 
-" }}}
-
-" 自定义命令 {{{
+" 自定义命令 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit! " :W 用 sudo 的方式来保存当前文件，适用于打开文件时没加 sudo 导致没有权限写的问题
-" }}}
 
-" 自定义函数 {{{
+" 自定义函数 
 function! ToggleScrollMode()
     if exists("s:scroll_mode")
         unmap k
@@ -138,11 +136,6 @@ function! CompileAndRun()
 		exec "!time java %<"
   endif
 endfunction
-
-" }}}
-
-
-
 
 " 打开文件时恢复上一次光标所在位置
 autocmd BufReadPost *

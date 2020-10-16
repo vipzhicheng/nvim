@@ -1,4 +1,4 @@
-" 声明 coc 扩展 {{{
+" 声明 coc 扩展 
 let g:coc_global_extensions = [
 	\ 'coc-actions',
 	\ 'coc-marketplace',
@@ -28,25 +28,19 @@ let g:coc_global_extensions = [
 	\ 'coc-vetur',
 	\ 'coc-yaml',
 	\ 'coc-yank']
-" }}}
 
-" 声明 VIM Plug 启用插件 {{{
+" 声明 VIM Plug 启用插件 
 call plug#begin('~/.config/nvim/plugged')
 
 " Pretty Dress
-" Plug 'morhetz/gruvbox'   " 另一个主题
-Plug 'theniceboy/vim-deus'            " 一个主题
-"Plug 'TaDaa/vimade'                   " 光标所在区域高亮
 Plug 'ryanoasis/vim-devicons'         " 资源管理器文件图标
 Plug 'junegunn/goyo.vim'              " 专注模式
 Plug 'vim-airline/vim-airline'        " 状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题
 Plug 'liuchengxu/vim-which-key'       " 提示 <leader> 之后都有什么键绑定
 Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
-" Plug 'mhinz/vim-startify'             " 启动页
 Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
-Plug 'flazz/vim-colorschemes'         " 一大堆主题
 Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
 
@@ -90,7 +84,6 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'vimwiki/vimwiki'
 
 call plug#end()
-" }}}
 
 colorscheme snazzy
 
@@ -182,8 +175,10 @@ let g:rnvimr_presets = [
 set laststatus=2  "永远显示状态栏
 let g:airline_powerline_fonts = 1  " 支持 powerline 字体
 let g:airline#extensions#tabline#enabled = 1 " 显示窗口tab和buffer
-let g:airline_theme='molokai'  " murmur配色不错
-
+let g:airline_theme='base16_brewer'
+let g:airline_extensions = ['tabline']
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_highlighting_cache = 1
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
@@ -700,3 +695,4 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " === snazzy
 " ===
 let g:SnazzyTransparent = 1
+

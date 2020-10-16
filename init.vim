@@ -10,7 +10,7 @@
 " Help: HELP.md
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 自动加载插件系统 {{{
+" 自动加载插件系统 
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
@@ -22,25 +22,23 @@ set runtimepath+=~/.config/nvim
 " 加载插件管理器
 runtime autoload/plug.vim
 
-" }}}
-
 
 " 防止重复定义
 augroup cmd_once
   autocmd!
 augroup END
 
-" 对vim 定义默认折叠
-augroup filetype_vim
-    autocmd FileType vim setlocal foldmethod=marker foldlevel=0
-augroup END
+" 对vim 定义默认折叠, 影响性能,不开也罢
+" augroup filetype_vim
+  "    autocmd FileType vim setlocal foldmethod=marker foldlevel=0
+" augroup END
 
 " 设置快捷键绑定的触发键
 let mapleader = " "
 let g:maplocalleader = '\'
 
 
-" 按文件加载配置 {{{
+" 按文件加载配置 
 
 " 模块化配置加载
 runtime plug.vim " 加载插件和插件配置，里面可能包含插件定义的快捷键
@@ -52,4 +50,3 @@ try
 runtime local.vim
 catch
 endtry
-" }}}
