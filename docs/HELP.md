@@ -46,6 +46,23 @@ vim --startuptime vim.log
 vim vim.log
 ```
 
+### 调试移动光标延迟
+
+> 不总是那么好用
+
+打开统计
+
+```
+syntime on
+```
+
+移动一会儿, 然后查看报告
+
+```
+syntime report
+```
+
+
 ### 粘贴格式错乱
 
 有两种解决方法，方法一
