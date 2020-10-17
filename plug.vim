@@ -81,6 +81,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'lyokha/vim-xkbswitch'
 Plug 'vimwiki/vimwiki'
+Plug 'yianwillis/vimcdoc'
+
 
 call plug#end()
 
@@ -581,13 +583,13 @@ let g:dashboard_shortcut_icon['book_marks'] = '  '
 
 let g:dashboard_custom_section = {
   \ 'a_edit_vimrc'           :[g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc again!                  '.g:dashboard_custom_shortcut['edit_vimrc']],
+  \ 'b_new_file'             :[g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
+  \ 'book_marks'           :[g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
   \ 'last_session'         :[g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
   \ 'find_history'         :[g:dashboard_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
   \ 'find_file'            :[g:dashboard_shortcut_icon['find_file'].'Find  File                            '.g:dashboard_custom_shortcut['find_file']],
-  \ 'new_file'             :[g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
   \ 'change_colorscheme'   :[g:dashboard_shortcut_icon['change_colorscheme'].'Change Colorscheme                    '.g:dashboard_custom_shortcut['change_colorscheme']],
   \ 'find_word'            :[g:dashboard_shortcut_icon['find_word'].'Find  word                            '.g:dashboard_custom_shortcut['find_word']],
-  \ 'book_marks'           :[g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
   \ }
 func! A_EDIT_VIMRC ()
   :e ~/.config/nvim/plug.vim
@@ -601,7 +603,7 @@ endfunction
 function! FIND_FILE()
   DashboardFindFile
 endfunction
-function! NEW_FILE()
+function! B_NEW_FILE()
   DashboardNewFile
 endfunction
 function! CHANGE_COLORSCHEME()
