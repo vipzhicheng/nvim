@@ -36,6 +36,8 @@ git pull -r
 * docs/INSTALL.md 安装 neovim 和一些底层依赖（npm/ruby/python）
 * docs/REQUIREMENTS.md 一些第三方依赖的安装方式（figlet/fzf/ranger/...）
 * docs/USAGE.md 综合各种配置而形成的帮助文档，很明显，随着插件的不同，键位的不同，这个文档也会跟着变。
+* docs/PERFORMANCE.md 记录在 VIM 出现性能问题时的解决心得。
+* docs/EXTRA.md 其他可能跟 `VIM` 无关，但是和效率有关的小 `tips`。
 
 ## 许可协议
 
