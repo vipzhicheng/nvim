@@ -83,6 +83,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
 
+" Debugger
+Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go --force-enable-node'}
+
 
 call plug#end()
 
@@ -582,16 +585,45 @@ let g:dashboard_shortcut_icon['find_word'] = '  '
 let g:dashboard_shortcut_icon['book_marks'] = '  '
 
 let g:dashboard_custom_section = {
-  \ 'a_edit_vimrc'           :[g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc again!                  '.g:dashboard_custom_shortcut['edit_vimrc']],
-  \ 'b_new_file'             :[g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
-  \ 'book_marks'           :[g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
-  \ 'last_session'         :[g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
-  \ 'find_history'         :[g:dashboard_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
-  \ 'find_file'            :[g:dashboard_shortcut_icon['find_file'].'Find  File                            '.g:dashboard_custom_shortcut['find_file']],
-  \ 'change_colorscheme'   :[g:dashboard_shortcut_icon['change_colorscheme'].'Change Colorscheme                    '.g:dashboard_custom_shortcut['change_colorscheme']],
-  \ 'find_word'            :[g:dashboard_shortcut_icon['find_word'].'Find  word                            '.g:dashboard_custom_shortcut['find_word']],
+  \ 'a_edit_vimrc'         :{
+        \ 'description': [g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc                          '.g:dashboard_custom_shortcut['last_session']],
+        \ 'command':'e ~/.config/nvim/plug.vim'},
+  \ 'last_session'         :{
+        \ 'description': [g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
+        \ 'command':function('dashboard#handler#last_session')},
+  \ 'find_history'         :{
+        \ 'description': [g:dashboard_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
+        \ 'command':function('dashboard#handler#find_history')},
+  \ 'find_file'            :{
+        \ 'description': [g:dashboard_shortcut_icon['find_file'].'Find  File                            '.g:dashboard_custom_shortcut['find_file']],
+        \ 'command':function('dashboard#handler#find_file')},
+  \ 'b_new_file'             :{
+        \ 'description': [g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
+        \ 'command':function('dashboard#handler#new_file')},
+  \ 'change_colorscheme'   :{
+        \ 'description': [g:dashboard_shortcut_icon['change_colorscheme'].'Change Colorscheme                    '.g:dashboard_custom_shortcut['change_colorscheme']],
+        \ 'command':function('dashboard#handler#change_colorscheme')},
+  \ 'find_word'            :{
+        \ 'description': [g:dashboard_shortcut_icon['find_word'].'Find  word                            '.g:dashboard_custom_shortcut['find_word']],
+        \ 'command': function('dashboard#handler#find_word')},
+  \ 'book_marks'           :{
+        \ 'description': [g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
+        \ 'command':function('dashboard#handler#book_marks')},
   \ }
-func! A_EDIT_VIMRC ()
+
+
+
+" let g:dashboard_custom_section = {
+"   \ 'a_edit_vimrc'           :[g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc again!                  '.g:dashboard_custom_shortcut['edit_vimrc']],
+"   \ 'b_new_file'             :[g:dashboard_shortcut_icon['new_file'].'New  File                             '.g:dashboard_custom_shortcut['new_file']],
+"   \ 'book_marks'           :[g:dashboard_shortcut_icon['book_marks'].'Jump to book marks                    '.g:dashboard_custom_shortcut['book_marks']],
+"   \ 'last_session'         :[g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
+"   \ 'find_history'         :[g:dashboard_shortcut_icon['find_history'].'Recently opened files                 '.g:dashboard_custom_shortcut['find_history']],
+"   \ 'find_file'            :[g:dashboard_shortcut_icon['find_file'].'Find  File                            '.g:dashboard_custom_shortcut['find_file']],
+"   \ 'change_colorscheme'   :[g:dashboard_shortcut_icon['change_colorscheme'].'Change Colorscheme                    '.g:dashboard_custom_shortcut['change_colorscheme']],
+"   \ 'find_word'            :[g:dashboard_shortcut_icon['find_word'].'Find  word                            '.g:dashboard_custom_shortcut['find_word']],
+"   \ }
+func! EDIT_VIMRC()
   :e ~/.config/nvim/plug.vim
 endfunction
 function! LAST_SESSION()
@@ -739,3 +771,21 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 " ===
 let g:SnazzyTransparent = 1
 
+
+" ===
+" === vimspector
+" ===
+let g:vimspector_enable_mappings = 'HUMAN'
+function! s:read_template_into_buffer(template)
+	" has to be a function to avoid the extra space fzf#run insers otherwise
+	execute '0r ~/.config/nvim/sample_vimspector_json/'.a:template
+endfunction
+command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
+			\   'source': 'ls -1 ~/.config/nvim/sample_vimspector_json',
+			\   'down': 20,
+			\   'sink': function('<sid>read_template_into_buffer')
+			\ })
+" noremap <leader>vs :tabe .vimspector.json<CR>:LoadVimSpectorJsonTemplate<CR>
+sign define vimspectorBP text=☛ texthl=Normal
+sign define vimspectorBPDisabled text=☞ texthl=Normal
+sign define vimspectorPC text=🔶 texthl=SpellBad
