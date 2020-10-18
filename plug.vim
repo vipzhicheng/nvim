@@ -585,7 +585,7 @@ let g:dashboard_shortcut_icon['book_marks'] = '  '
 
 let g:dashboard_custom_section = {
   \ 'a_edit_vimrc'         :{
-        \ 'description': [g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc                          '.g:dashboard_custom_shortcut['last_session']],
+        \ 'description': [g:dashboard_shortcut_icon['edit_vimrc'].'Edit my vimrc again!                  '.g:dashboard_custom_shortcut['last_session']],
         \ 'command':'e ~/.config/nvim/plug.vim'},
   \ 'last_session'         :{
         \ 'description': [g:dashboard_shortcut_icon['last_session'].'Recently last session                 '.g:dashboard_custom_shortcut['last_session']],
