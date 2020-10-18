@@ -69,7 +69,20 @@ gem install neovim
 
 ## CentOS
 
-TBD
+发现 CentOS 默认包管理工具里 `Ruby` 版本太低，所以需要其他的方式安装较新的版本，发现至少有两种选择 `rbenv` 和 `rvm` 目测 `rvm` 看起来更简单一些。
+
+安装 `rvm`
+
+```
+curl -sSL https://get.rvm.io | bash -s stable
+```
+
+安装特定版本
+
+```
+rvm install ruby-2.3
+rvm use ruby-2.3 --default
+```
 
 ## 安装 Python 环境
 
@@ -95,6 +108,7 @@ python3 -m pip install --user --upgrade pynvim
 pip3.8 install --user --upgrade pynvim # 或，由于Mac本地安装安装了xcode, pip3 不是这里需要得
 ```
 
+
 有些插件依赖 `neovim-remote`，这里是 `Floaterm` 依赖
 
 ```
@@ -102,5 +116,15 @@ pip3.8 install neovim-remote
 ```
 
 ### CentOS
+
+
+如果安装失败，有可能是缺少头文件，试试
+
+```
+yum install python3-devel
+```
+
+
+
 
 最后进 `nvim` 执行 `:checkhealth` 看看

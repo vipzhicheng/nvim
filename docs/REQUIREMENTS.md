@@ -47,6 +47,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 pip3.8 install --user --upgrade ranger-fm
 ```
 
+注意执行之后要看看安装到什么位置了，我在 `CentOS` 里执行完以后发现找不到 `ranger` 这是怎么回事的，因为其安装到了 `/root/.local/bin` 这样我们就需要设置一下 `PATH` 环境变量了。
+
 ### Git
 
 ```
