@@ -45,7 +45,7 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
 
 " File navigation
-" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
@@ -94,17 +94,16 @@ colorscheme snazzy
 " ===
 " === LeaderF
 " ===
-" noremap <silent> <C-p> :Files<cr>
-" noremap <silent> <leader>f <nop>
-" noremap <silent> <C-p> :Leaderf file<cr>
-" noremap <silent> <C-e> :LeaderfMru<cr>
-" noremap <silent> <C-b> :LeaderfBuffer<cr>
-" noremap <silent> <C-f> :LeaderfFunction<cr>
-"noremap <silent> <C-h> :History<cr>
+noremap <silent> <leader>ff :Files<cr>
+noremap <silent> <leader>tc :Colors<cr>
+noremap <silent> <leader>fm :Marks<cr>
+noremap <silent> <leader>fa :Ag<cr>
+noremap <silent> <leader>fe :LeaderfMru<cr>
+noremap <silent> <leader>fb :Buffer<cr>
+noremap <silent> <leader>fu :LeaderfFunction<cr>
+noremap <silent> <leader>fh :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
-"noremap <silent> <C-w> :Buffers<cr>
-"noremap <leader>; :History:<cr>
 
 " let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
@@ -263,8 +262,8 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>ff  <Plug>(coc-format-selected)
-nmap <leader>ff  <Plug>(coc-format-selected)
+" xmap <leader>ff  <Plug>(coc-format-selected)
+" nmap <leader>ff  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -556,11 +555,11 @@ let g:dashboard_default_header = 'cres'
 nmap <Leader>ss :<C-u>SessionSave<CR>
 nmap <Leader>sl :<C-u>SessionLoad<CR>
 nmap <Leader>fc :<C-u>DashboardNewFile<CR>
-nnoremap <silent> <Leader>fh :History<CR>
-nnoremap <silent> <Leader>ff :Files<CR>
-nnoremap <silent> <Leader>tc :Colors<CR>
-nnoremap <silent> <Leader>fa :Ag<CR>
-nnoremap <silent> <Leader>fb :Marks<CR>
+" nnoremap <silent> <Leader>fh :History<CR>
+" nnoremap <silent> <Leader>ff :Files<CR>
+" nnoremap <silent> <Leader>tc :Colors<CR>
+" nnoremap <silent> <Leader>fa :Ag<CR>
+" nnoremap <silent> <Leader>fb :Marks<CR>
 nnoremap <silent> <Leader>fc :<C-u>DashboardNewFile<CR>
 
 let g:dashboard_custom_shortcut={
