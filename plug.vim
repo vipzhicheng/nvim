@@ -79,7 +79,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Tool
 
-Plug 'lyokha/vim-xkbswitch'
+"Plug 'lyokha/vim-xkbswitch'
 Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
 
