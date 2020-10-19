@@ -82,6 +82,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'lyokha/vim-xkbswitch'
 Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
+Plug 'jpalardy/vim-slime'
 
 " Debugger
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go --force-enable-node'}
@@ -788,3 +789,9 @@ command! -bang -nargs=* LoadVimSpectorJsonTemplate call fzf#run({
 sign define vimspectorBP text=☛ texthl=Normal
 sign define vimspectorBPDisabled text=☞ texthl=Normal
 sign define vimspectorPC text=🔶 texthl=SpellBad
+
+
+" ===
+" === vim slime
+" ===
+let g:slime_target = "tmux"
