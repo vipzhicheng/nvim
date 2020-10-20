@@ -57,10 +57,10 @@ Plug 'brooth/far.vim'
 Plug 'kshenoy/vim-signature'
 
 " Editor
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " 多光标匹配编辑
 Plug 'honza/vim-snippets'           " 社区代码片段
 Plug 'tpope/vim-repeat'             " 修正 . 的作用
 Plug 'mbbill/undotree'              " 本地修改历史，撤销/重做
-Plug 'terryma/vim-multiple-cursors' " 多光标查找和修改
 Plug 'junegunn/vim-easy-align'      " 对齐等号
 Plug 'easymotion/vim-easymotion'    " 快速移动光标
 Plug 'liuchengxu/vista.vim'         " 程序大纲 依赖于ctags，还没配好
@@ -73,6 +73,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markd
 Plug 'Yggdroot/indentLine'
 Plug 'lfv89/vim-interestingwords'   " 高亮单词
 Plug 'tpope/vim-abolish'            " 变量名变换
+Plug 'haya14busa/incsearch.vim'
+
 
 " Language
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -796,3 +798,19 @@ sign define vimspectorPC text=🔶 texthl=SpellBad
 " ===
 let g:slime_target = "tmux"
 let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+
+" ===
+" === incsearch
+" ===
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
