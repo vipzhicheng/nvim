@@ -6,6 +6,13 @@
     "$HOME/.config/nvim/Ultisnips",
     "$HOME/.config/nvim/plugged/vim-snippets/UltiSnips"
   ],
-  "tsserver.maxTsServerMemory": 512
+  "tsserver.maxTsServerMemory": 512,
+  "languageserver": {
+    "golang": {
+      "command":"gopls",
+      "rootPatterns":["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
 
 }

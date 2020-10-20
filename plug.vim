@@ -33,7 +33,6 @@ let g:coc_global_extensions = [
 call plug#begin('~/.config/nvim/plugged')
 
 " Pretty Dress
-Plug 'ryanoasis/vim-devicons'         " 资源管理器文件图标
 Plug 'junegunn/goyo.vim'              " 专注模式
 Plug 'vim-airline/vim-airline'        " 状态栏
 Plug 'vim-airline/vim-airline-themes' " 状态栏主题
@@ -43,18 +42,24 @@ Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
 Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'altercation/vim-colors-solarized'
 
 " File navigation
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }                 " 各种文件切换方式
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " 各种文件切换方式
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                   " LSC 补全客户端，同时具有自己的插件机制
-Plug 'kevinhwang91/rnvimr'                                        " 整合 ranger
-Plug 'preservim/nerdtree'                                         " 资源管理器
-Plug 'airblade/vim-rooter'                                        " 自动切换目录
-Plug 'pechorin/any-jump.vim'                                      " 跳转文件
+Plug 'neoclide/coc.nvim', {'branch': 'release'}   " LSC 补全客户端，同时具有自己的插件机制
+Plug 'kevinhwang91/rnvimr'                        " 整合 ranger
+Plug 'preservim/nerdtree'                         " 资源管理器
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'                     " 资源管理器文件图标
+Plug 'airblade/vim-rooter'                        " 自动切换目录
+Plug 'pechorin/any-jump.vim'                      " 跳转文件
 Plug 'brooth/far.vim'
 " Plug 'MattesGroeger/vim-bookmarks'
 Plug 'kshenoy/vim-signature'
+Plug 'yuttie/comfortable-motion.vim'
 
 " Editor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " 多光标匹配编辑
@@ -368,6 +373,7 @@ noremap  <leader>/ <Plug>(easymotion-sn)
 noremap tt :NERDTreeToggle<CR>
 " 如果当前窗口只剩下 NERDTree 了，就把NERDTree 也关掉
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeGitStatusUseNerdFonts = 1 " you should install nerdfonts by yourself. default: 0
 
 " ===
 " === NERD commenter
@@ -814,3 +820,15 @@ map *  <Plug>(incsearch-nohl-*)
 map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+
+" ===
+" === comfortable motion
+" ===
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
+
+nnoremap <silent> <C-f> :call comfortable_motion#flick(200)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(-200)<CR>

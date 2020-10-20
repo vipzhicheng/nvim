@@ -24,10 +24,10 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 
 " Resize splits with arrow keys
-noremap <up> :res -5<CR>
-noremap <down> :res +5<CR>
-noremap <left> :vertical resize+5<CR>
-noremap <right> :vertical resize-5<CR>
+noremap <leader><up> :res -5<CR>
+noremap <leader><down> :res +5<CR>
+noremap <leader><left> :vertical resize+5<CR>
+noremap <leader><right> :vertical resize-5<CR>
 
 " ===
 " === Tab management
