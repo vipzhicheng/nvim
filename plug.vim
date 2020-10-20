@@ -554,6 +554,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_variable_assignments = 0
 let g:go_highlight_variable_declarations = 0
 let g:go_doc_keywordprg_enabled = 0
+let g:go_fmt_command = "goimports"
 
 
 " ===
