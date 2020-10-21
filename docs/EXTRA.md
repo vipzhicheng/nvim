@@ -21,6 +21,32 @@ $ mkdir -p $(brew --prefix zathura)/lib/zathura
 $ ln -s $(brew --prefix zathura-pdf-poppler)/libpdf-poppler.dylib $(brew --prefix zathura)/lib/zathura/libpdf-poppler.dylib
 ```
 
+## 在 Mac 命令行中将 `Markdown` 转成命令行 PPT
+
+一开始以为是个 vim 插件，其实是个独立的命令行工具，还挺酷的。
+
+```
+brew install mdp
+```
+
+PPT示例
+
+```
+# Head 1
+
+---
+# Head 2
+
+* item 1
+* item 2
+```
+
+使用
+
+```
+mdp index.md
+```
+
 ## 在 Mac 中将左边的 `caps lock` 键，映射成 `esc`
 
 是个软件，去这里下载：https://github.com/pqrs-org/Karabiner-Elements
