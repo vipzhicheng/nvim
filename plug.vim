@@ -686,7 +686,7 @@ let g:mkdp_refresh_slow = 0
 " set to 1, the MarkdownPreview command can be use for all files,
 " by default it can be use in markdown file
 " default: 0
-let g:mkdp_command_for_global = 0
+let g:mkdp_command_for_global = 1
 
 " set to 1, preview server available to others in your network
 " by default, the server listens on localhost (127.0.0.1)
