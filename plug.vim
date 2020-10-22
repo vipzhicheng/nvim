@@ -90,6 +90,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
 Plug 'jpalardy/vim-slime'
+Plug 'tpope/vim-obsession'
 
 " Debugger
 Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go --force-enable-node'}
