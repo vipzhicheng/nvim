@@ -72,6 +72,7 @@ Plug 'liuchengxu/vista.vim'         " 程序大纲 依赖于ctags，还没配好
 Plug 'jiangmiao/auto-pairs'         " 括号自动匹配
 Plug 'preservim/nerdcommenter'      " 注释
 Plug 'tpope/vim-surround'           " 用符号包围字符串
+Plug 'gcmt/wildfire.vim'
 Plug 'mattn/emmet-vim'              " HTML 智能补全
 Plug 'dhruvasagar/vim-table-mode'   " Markdown 表格模式
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markdown 预览
@@ -87,7 +88,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Tool
 
 "Plug 'lyokha/vim-xkbswitch'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
 Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-obsession'
@@ -402,6 +403,8 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+
+imap <Leader>c<space> <C-o><Leader>c<space>
 
 " ===
 " === which-key

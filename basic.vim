@@ -125,9 +125,10 @@ function! CompileAndRun()
 		:sp
 		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
-		set splitbelow
-		:sp
-		:term go run .
+    :GoRun
+		" set splitbelow
+		" :sp
+		" :term go run .
   elseif &filetype == 'sh'
 		:!time bash %
   elseif &filetype == 'java'

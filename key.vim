@@ -6,6 +6,7 @@ inoremap jk <esc>
 
 
 " Save & quit
+nnoremap q <nop>  " 很少用宏
 noremap Q :q<CR>
 noremap <C-q> :q<CR>
 nnoremap <leader>w :w<cr>
