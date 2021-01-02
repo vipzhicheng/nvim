@@ -124,7 +124,13 @@ pip3.8 install neovim-remote
 yum install python3-devel
 ```
 
+## clipboard
 
+### Manjaro
+
+```
+sudo pacman -S xsel
+```
 
 
 最后进 `nvim` 执行 `:checkhealth` 看看

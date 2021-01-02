@@ -125,7 +125,7 @@ function! CompileAndRun()
 		:sp
 		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
 	elseif &filetype == 'go'
-    :GoRun
+    :GoRun %
 		" set splitbelow
 		" :sp
 		" :term go run .
