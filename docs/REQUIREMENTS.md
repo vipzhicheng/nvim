@@ -2,6 +2,19 @@
 
 有一些配置需要额外的依赖，这里跟随配置进行 添加
 
+## Fonts
+
+某些插件需要支持图标的字体，这里建议使用nerd fonts
+
+### Mac
+
+```
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
+```
+
+然后需要修改iTerm2的配置
+
 ## Figlet
 
 可以理解成字符 LOGO 吧，ASCII ART
