@@ -105,14 +105,14 @@ brew link --overwrite python@3.8 # 重建一堆符号链接，不要紧，反正
 
 ```
 python3 -m pip install --user --upgrade pynvim
-pip3.8 install --user --upgrade pynvim # 或，由于Mac本地安装安装了xcode, pip3 不是这里需要得
+pip3 install --user --upgrade pynvim # 或，由于Mac本地安装安装了xcode, pip3 不是这里需要得
 ```
 
 
 有些插件依赖 `neovim-remote`，这里是 `Floaterm` 依赖
 
 ```
-pip3.8 install neovim-remote
+pip3 install neovim-remote
 ```
 
 ### CentOS

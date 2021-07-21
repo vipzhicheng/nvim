@@ -1,4 +1,4 @@
-" 声明 coc 扩展 
+"`g:python3_host_prog` 声明 coc 扩展 
 let g:coc_global_extensions = [
 	\ 'coc-actions',
 	\ 'coc-marketplace',
