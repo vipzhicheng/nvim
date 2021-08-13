@@ -4,6 +4,7 @@ set nocompatible     " 禁用 vi 兼容模式
 
 set mouse=a
 
+set timeoutlen=1 ttimeoutlen=0 "解决insert模式切换回normal模式下延迟的问题
 set autoindent       " 自动缩进
 set showmatch        " 显示匹配的括号
 set path+=**         " 支持简单的模糊搜索
