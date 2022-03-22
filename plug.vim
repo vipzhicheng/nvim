@@ -48,14 +48,15 @@ Plug 'altercation/vim-colors-solarized'
 " File navigation
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " 各种文件切换方式
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+"Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " 各种文件切换方式
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                        " 整合 ranger
 Plug 'preservim/nerdtree'                         " 资源管理器
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-devicons'                     " 资源管理器文件图标
+Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
 Plug 'airblade/vim-rooter'                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                      " 跳转文件
 Plug 'brooth/far.vim'
@@ -106,18 +107,27 @@ colorscheme snazzy
 " ===
 " === LeaderF
 " ===
-noremap <silent> <leader>ff :Files<cr>
-noremap <silent> <leader>tc :Colors<cr>
-noremap <silent> <leader>fm :Marks<cr>
-noremap <silent> <leader>fa :Ag<cr>
-noremap <silent> <leader>fe :LeaderfMru<cr>
-noremap <silent> <leader>fb :Buffer<cr>
-noremap <silent> <leader>fu :LeaderfFunction<cr>
-noremap <silent> <leader>fh :History<cr>
+"noremap <silent> <leader>ff :Files<cr>
+"noremap <silent> <leader>tc :Colors<cr>
+"noremap <silent> <leader>fm :Marks<cr>
+"noremap <silent> <leader>fa :Ag<cr>
+"noremap <silent> <leader>fe :LeaderfMru<cr>
+"noremap <silent> <leader>fb :Buffer<cr>
+"noremap <silent> <leader>fu :LeaderfFunction<cr>
+"noremap <silent> <leader>fh :History<cr>
 "noremap <C-t> :BTags<cr>
 "noremap <silent> <C-l> :Lines<cr>
 
-" let g:Lf_WindowPosition = 'popup'
+" ===
+" === Telescop
+" ====
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+
+let g:Lf_WindowPosition = 'popup'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_PreviewCode = 1
 let g:Lf_ShowHidden = 1
@@ -139,14 +149,14 @@ let g:scrollstatus_size = 12
 
 
 " ===
-" === rnvimr
+" === rnvima
 " ===
 let g:rnvimr_ex_enable = 1
 let g:rnvimr_pick_enable = 1
 let g:rnvimr_draw_border = 0
 " let g:rnvimr_bw_enable = 1
 highlight link RnvimrNormal CursorLine
-nnoremap <silent> ra :RnvimrToggle<cr><C-\><C-n>:RnvimrResize 0<cr>
+nnoremap <silent> <leader>ra :RnvimrToggle<cr><C-\><C-n>:RnvimrResize 0<cr>
 let g:rnvimr_action = {
             \ '<C-t>': 'NvimEdit tabedit',
             \ '<C-x>': 'NvimEdit split',
@@ -196,7 +206,7 @@ let g:airline_highlighting_cache = 1
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
-noremap rr :AirlineTheme random<cr>
+nnoremap <silent> <leader>rr :AirlineTheme random<cr>
 
 
 " ===
