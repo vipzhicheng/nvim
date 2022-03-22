@@ -4,7 +4,6 @@
 " inoremap <esc> <nop>
 inoremap jk <esc>
 
-
 " Save & quit
 nnoremap q <nop>  " 很少用宏
 noremap Q :q<CR>

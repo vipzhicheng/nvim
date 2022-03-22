@@ -3,6 +3,7 @@ let g:coc_global_extensions = [
 	\ 'coc-actions',
 	\ 'coc-marketplace',
 	\ 'coc-css',
+	\ 'coc-calc',
 	\ 'coc-deno',
 	\ 'coc-diagnostic',
 	\ 'coc-docker',
@@ -21,7 +22,6 @@ let g:coc_global_extensions = [
 	\ 'coc-sourcekit',
 	\ 'coc-stylelint',
 	\ 'coc-syntax',
-	\ 'coc-translator',
 	\ 'coc-tslint-plugin',
 	\ 'coc-tsserver',
 	\ 'coc-vimlsp',
@@ -46,6 +46,8 @@ Plug 'junegunn/gv.vim'
 Plug 'altercation/vim-colors-solarized'
 
 " File navigation
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " 各种文件切换方式
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -168,7 +170,7 @@ let g:rnvimr_presets = [
             \ {'width': 0.800, 'height': 0.800},
             \ {'width': 0.950, 'height': 0.950},
             \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0},
-            \ {'width': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
+            \ {'wiath': 0.500, 'height': 0.500, 'col': 0, 'row': 0.5},
             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0},
             \ {'width': 0.500, 'height': 0.500, 'col': 0.5, 'row': 0.5},
             \ {'width': 0.500, 'height': 1.000, 'col': 0, 'row': 0},
@@ -215,7 +217,7 @@ let g:undotree_SplitWidth = 24
 " ===
 " === goyo
 " ===
-map gy :Goyo<cr>
+nmap <silent> <leader>gy :Goyo<cr>
 
 
 " ===
@@ -317,7 +319,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings for CoCList
 " Show all diagnostics.
@@ -345,10 +347,6 @@ let g:coc_snippet_prev = '<c-k>'
 " coc-restclient
 nnoremap <leader>re :<C-u>CocCommand rest-client.request<CR>
 
-" coc-translator
-nnoremap ts :<C-u>CocCommand translator.popup<CR>
-
-
 
 " ===
 " === EasyMotion
@@ -357,7 +355,7 @@ let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap <leader>g <Plug>(easymotion-overwin-f)
+nmap <leader>gg <Plug>(easymotion-overwin-f2)
 
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
@@ -524,8 +522,10 @@ endif
 " ===
 " === Floaterm
 " ===
-nnoremap   <silent>   <leader><leader>    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
+nnoremap   <silent>   <leader>mm    :FloatermNew --wintype=normal --positon=bottom --autoclose=1<CR>
 let g:floaterm_keymap_toggle = '<F12>'
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
 
 " ===
