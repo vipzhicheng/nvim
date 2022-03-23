@@ -16,6 +16,7 @@ nnoremap <leader>rc :e ~/.config/nvim/plug.vim<cr>
 nnoremap <leader>rl :source $MYVIMRC<cr>
 
 noremap <c-g> :FloatermNew --autoclose=1 lazygit<cr>
+noremap <c-t> :FloatermNew --autoclose=1 tig<cr>
 
 " 在窗口中移动
 map <C-j> <C-w>j

@@ -42,8 +42,8 @@ Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
 Plug 'connorholyday/vim-snazzy'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
-Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/gv.vim' " 提供了一个Git Commits的插件界面
+"Plug 'altercation/vim-colors-solarized'
 
 " File navigation
 Plug 'nvim-lua/plenary.nvim'
@@ -56,7 +56,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}   " LSC 补全客户端，同时
 Plug 'kevinhwang91/rnvimr'                        " 整合 ranger
 Plug 'preservim/nerdtree'                         " 资源管理器
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
+"Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
 Plug 'airblade/vim-rooter'                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                      " 跳转文件
 Plug 'brooth/far.vim'
@@ -67,7 +67,7 @@ Plug 'yuttie/comfortable-motion.vim'
 " Editor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " 多光标匹配编辑
 Plug 'honza/vim-snippets'           " 社区代码片段
-Plug 'tpope/vim-repeat'             " 修正 . 的作用
+"Plug 'tpope/vim-repeat'             " 修正 . 的作用
 Plug 'mbbill/undotree'              " 本地修改历史，撤销/重做
 Plug 'junegunn/vim-easy-align'      " 对齐等号
 Plug 'easymotion/vim-easymotion'    " 快速移动光标
@@ -75,7 +75,7 @@ Plug 'liuchengxu/vista.vim'         " 程序大纲 依赖于ctags，还没配好
 Plug 'jiangmiao/auto-pairs'         " 括号自动匹配
 Plug 'preservim/nerdcommenter'      " 注释
 Plug 'tpope/vim-surround'           " 用符号包围字符串
-Plug 'gcmt/wildfire.vim'
+"Plug 'gcmt/wildfire.vim'
 Plug 'mattn/emmet-vim'              " HTML 智能补全
 Plug 'dhruvasagar/vim-table-mode'   " Markdown 表格模式
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " Markdown 预览
@@ -93,11 +93,11 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "Plug 'lyokha/vim-xkbswitch'
 "Plug 'vimwiki/vimwiki'
 Plug 'yianwillis/vimcdoc'
-Plug 'jpalardy/vim-slime'
-Plug 'tpope/vim-obsession'
+"Plug 'jpalardy/vim-slime'
+"Plug 'tpope/vim-obsession'
 
 " Debugger
-Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go --force-enable-node'}
+"Plug 'puremourning/vimspector', {'do': './install_gadget.py --enable-c --enable-python --enable-go --force-enable-node'}
 
 
 call plug#end()
