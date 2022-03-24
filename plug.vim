@@ -40,14 +40,14 @@ Plug 'liuchengxu/vim-which-key'       " 提示 <leader> 之后都有什么键绑
 Plug 'skywind3000/vim-quickui'        " 提供了一个菜单栏
 Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'voldikss/vim-floaterm'          " 添加额外的终端弹窗
-Plug 'connorholyday/vim-snazzy'
-Plug 'tpope/vim-fugitive'
+Plug 'connorholyday/vim-snazzy'      "就是个主题配色
+Plug 'tpope/vim-fugitive'    " 在Vim里直接调用Git命令
 Plug 'junegunn/gv.vim' " 提供了一个Git Commits的插件界面
 "Plug 'altercation/vim-colors-solarized'
 
 " File navigation
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-lua/plenary.nvim'    "貌似是个底层依赖
+Plug 'nvim-telescope/telescope.nvim'    "呈现各种列表
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 "Plug 'Yggdroot/LeaderF', { 'do': './install.sh' } " 各种文件切换方式
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -55,14 +55,14 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " LSC 补全客户端，同时具有自己的插件机制
 Plug 'kevinhwang91/rnvimr'                        " 整合 ranger
 Plug 'preservim/nerdtree'                         " 资源管理器
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
+Plug 'Xuyuanp/nerdtree-git-plugin'           "左侧目录显示Git状态
+Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
 Plug 'airblade/vim-rooter'                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                      " 跳转文件
 Plug 'brooth/far.vim'
 " Plug 'MattesGroeger/vim-bookmarks'
-Plug 'kshenoy/vim-signature'
-Plug 'yuttie/comfortable-motion.vim'
+Plug 'kshenoy/vim-signature'      " marks优化
+Plug 'yuttie/comfortable-motion.vim'    " 顺滑的翻页滚动效果 
 
 " Editor
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " 多光标匹配编辑
