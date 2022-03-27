@@ -56,7 +56,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}   " LSC 补全客户端，同时
 Plug 'kevinhwang91/rnvimr'                        " 整合 ranger
 Plug 'preservim/nerdtree'                         " 资源管理器
 Plug 'Xuyuanp/nerdtree-git-plugin'           "左侧目录显示Git状态
-Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
+"Plug 'ryanoasis/vim-davicons'                     " 资源管理器文件图标
 Plug 'airblade/vim-rooter'                        " 自动切换目录
 Plug 'pechorin/any-jump.vim'                      " 跳转文件
 Plug 'brooth/far.vim'
@@ -823,18 +823,18 @@ let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_
 " ===
 " === incsearch
 " ===
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backward)
+"map g/ <Plug>(incsearch-stay)
+"nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+"set hlsearch
+"let g:incsearch#auto_nohlsearch = 1
+"map n  <Plug>(incsearch-nohl-n)
+"map N  <Plug>(incsearch-nohl-N)
+"map *  <Plug>(incsearch-nohl-*)
+"map #  <Plug>(incsearch-nohl-#)
+"map g* <Plug>(incsearch-nohl-g*)
+"map g# <Plug>(incsearch-nohl-g#)
 
 
 " ===
